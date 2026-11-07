@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Test Arctic",
+    "variable": "ice",
+    "region": "Arctic Ocean",
+    "units": "million km2",
+    "source_name": "FAKE SAMPLE DATA",
+    "source_link": "",
+    "start_year": 2015,
+    "end_year": 2020,
+    "points": [
+      {"year": 2015, "value": 4.6},
+      {"year": 2016, "value": 4.5},
+      {"year": 2017, "value": 4.4},
+      {"year": 2018, "value": 4.3},
+      {"year": 2019, "value": 4.1},
+      {"year": 2020, "value": 4.0}
+    ],
+    "result": {
+      "slope_per_decade": -1.2,
+      "p_value": 0.01,
+      "test_used": "Mann-Kendall",
+      "is_significant": true
+    }
+  }
+]

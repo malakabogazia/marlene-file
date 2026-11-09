@@ -1,4 +1,5 @@
 import pymannkendall as mk
+from scipy.stats import theilslopes
 from django.shortcuts import get_object_or_404
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.response import Response
@@ -29,6 +30,7 @@ class SiteTrend(APIView):
             return Response({'error': 'start and end must be whole years'}, status=400)
 
         points = site.points.filter(year__gte=start, year__lte=end)
+        years = [p.year for p in points]
         values = [p.value for p in points]
 
         if len(values) < 5:
@@ -38,13 +40,15 @@ class SiteTrend(APIView):
             )
 
         result = mk.original_test(values)
+        # Sen's slope using the real years, so gaps don't distort it (units per year)
+        slope_per_year = theilslopes(values, years).slope
 
         return Response({
             'site': site.name,
             'start': start,
             'end': end,
             'n_points': len(values),
-            'slope_per_decade': float(result.slope) * 10,
+            'slope_per_decade': float(slope_per_year) * 10,
             'p_value': float(result.p),
             'test_used': 'Mann-Kendall',
             'is_significant': bool(result.p < 0.05),

@@ -16,6 +16,11 @@ class Site(models.Model):
     start_year = models.IntegerField()
     end_year = models.IntegerField()
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['name', 'variable'], name='unique_site_per_variable'),
+        ]
+
     def __str__(self):
         return self.name
 
@@ -27,6 +32,9 @@ class TimeSeriesPoint(models.Model):
 
     class Meta:
         ordering = ['year']
+        constraints = [
+            models.UniqueConstraint(fields=['site', 'year'], name='one_value_per_year'),
+        ]
 
 
 class Result(models.Model):

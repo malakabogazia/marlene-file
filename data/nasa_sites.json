@@ -1,0 +1,1280 @@
+[
+  {
+    "name": "Mediterranean - Precipitation",
+    "variable": "Precipitation",
+    "region": "Mediterranean (land within lon -10 to 42 E, lat 29 to 46 N)",
+    "units": "mm/year",
+    "source_name": "GPCP Precipitation Level 3 Monthly 0.5-Degree V3.3 (GPCPMON), NASA GES DISC; variable sat_gauge_precip (mm/day) x days in month, summed over 12 months; land cells = at least half of the FLDAS cells inside are land; latitude-weighted land mean, every 0.5-degree cell (2136 cells)",
+    "source_link": "https://doi.org/10.5067/MEASURES/GPCP/DATA306",
+    "start_year": 1990,
+    "end_year": 2020,
+    "points": [
+      {
+        "year": 1990,
+        "value": 427.5
+      },
+      {
+        "year": 1991,
+        "value": 490.8
+      },
+      {
+        "year": 1992,
+        "value": 458.3
+      },
+      {
+        "year": 1993,
+        "value": 436.4
+      },
+      {
+        "year": 1994,
+        "value": 465.9
+      },
+      {
+        "year": 1995,
+        "value": 496.9
+      },
+      {
+        "year": 1996,
+        "value": 586.8
+      },
+      {
+        "year": 1997,
+        "value": 527.4
+      },
+      {
+        "year": 1998,
+        "value": 459.6
+      },
+      {
+        "year": 1999,
+        "value": 482.0
+      },
+      {
+        "year": 2000,
+        "value": 444.3
+      },
+      {
+        "year": 2001,
+        "value": 471.2
+      },
+      {
+        "year": 2002,
+        "value": 511.8
+      },
+      {
+        "year": 2003,
+        "value": 505.8
+      },
+      {
+        "year": 2004,
+        "value": 497.7
+      },
+      {
+        "year": 2005,
+        "value": 464.6
+      },
+      {
+        "year": 2006,
+        "value": 483.7
+      },
+      {
+        "year": 2007,
+        "value": 452.4
+      },
+      {
+        "year": 2008,
+        "value": 478.1
+      },
+      {
+        "year": 2009,
+        "value": 544.4
+      },
+      {
+        "year": 2010,
+        "value": 579.1
+      },
+      {
+        "year": 2011,
+        "value": 459.4
+      },
+      {
+        "year": 2012,
+        "value": 488.0
+      },
+      {
+        "year": 2013,
+        "value": 514.6
+      },
+      {
+        "year": 2014,
+        "value": 562.5
+      },
+      {
+        "year": 2015,
+        "value": 467.1
+      },
+      {
+        "year": 2016,
+        "value": 513.5
+      },
+      {
+        "year": 2017,
+        "value": 418.8
+      },
+      {
+        "year": 2018,
+        "value": 570.6
+      },
+      {
+        "year": 2019,
+        "value": 491.8
+      },
+      {
+        "year": 2020,
+        "value": 448.0
+      }
+    ],
+    "result": {
+      "slope_per_decade": 11.43,
+      "p_value": 0.2478,
+      "test_used": "Mann-Kendall",
+      "is_significant": false
+    }
+  },
+  {
+    "name": "Mediterranean - Actual evapotranspiration",
+    "variable": "Actual evapotranspiration",
+    "region": "Mediterranean (land within lon -10 to 42 E, lat 29 to 46 N)",
+    "units": "mm/year",
+    "source_name": "FLDAS Noah Land Surface Model L4 Global Monthly 0.1 x 0.1 degree (MERRA-2 and CHIRPS) V001 (FLDAS_NOAH01_C_GL_M), NASA GES DISC; variable Evap_tavg (kg/m2/s) x 86400 x days in month, summed over 12 months; latitude-weighted land mean, every 2nd 0.1-degree cell (13330 cells)",
+    "source_link": "https://doi.org/10.5067/5NHC22T9375G",
+    "start_year": 1990,
+    "end_year": 2020,
+    "points": [
+      {
+        "year": 1990,
+        "value": 340.4
+      },
+      {
+        "year": 1991,
+        "value": 360.0
+      },
+      {
+        "year": 1992,
+        "value": 342.6
+      },
+      {
+        "year": 1993,
+        "value": 340.7
+      },
+      {
+        "year": 1994,
+        "value": 348.6
+      },
+      {
+        "year": 1995,
+        "value": 352.6
+      },
+      {
+        "year": 1996,
+        "value": 371.9
+      },
+      {
+        "year": 1997,
+        "value": 385.3
+      },
+      {
+        "year": 1998,
+        "value": 372.4
+      },
+      {
+        "year": 1999,
+        "value": 364.9
+      },
+      {
+        "year": 2000,
+        "value": 342.1
+      },
+      {
+        "year": 2001,
+        "value": 358.5
+      },
+      {
+        "year": 2002,
+        "value": 368.4
+      },
+      {
+        "year": 2003,
+        "value": 381.7
+      },
+      {
+        "year": 2004,
+        "value": 384.7
+      },
+      {
+        "year": 2005,
+        "value": 358.2
+      },
+      {
+        "year": 2006,
+        "value": 393.4
+      },
+      {
+        "year": 2007,
+        "value": 378.9
+      },
+      {
+        "year": 2008,
+        "value": 368.1
+      },
+      {
+        "year": 2009,
+        "value": 391.6
+      },
+      {
+        "year": 2010,
+        "value": 416.7
+      },
+      {
+        "year": 2011,
+        "value": 381.7
+      },
+      {
+        "year": 2012,
+        "value": 363.5
+      },
+      {
+        "year": 2013,
+        "value": 388.4
+      },
+      {
+        "year": 2014,
+        "value": 390.3
+      },
+      {
+        "year": 2015,
+        "value": 378.6
+      },
+      {
+        "year": 2016,
+        "value": 366.3
+      },
+      {
+        "year": 2017,
+        "value": 350.6
+      },
+      {
+        "year": 2018,
+        "value": 406.5
+      },
+      {
+        "year": 2019,
+        "value": 379.2
+      },
+      {
+        "year": 2020,
+        "value": 358.3
+      }
+    ],
+    "result": {
+      "slope_per_decade": 11.87,
+      "p_value": 0.0076,
+      "test_used": "Mann-Kendall",
+      "is_significant": true
+    }
+  },
+  {
+    "name": "Mediterranean - Soil moisture (0-10 cm)",
+    "variable": "Soil moisture (0-10 cm)",
+    "region": "Mediterranean (land within lon -10 to 42 E, lat 29 to 46 N)",
+    "units": "m3/m3",
+    "source_name": "FLDAS Noah Land Surface Model L4 Global Monthly 0.1 x 0.1 degree (MERRA-2 and CHIRPS) V001 (FLDAS_NOAH01_C_GL_M), NASA GES DISC; variable SoilMoi00_10cm_tavg, mean of 12 months; latitude-weighted land mean, every 2nd 0.1-degree cell (13330 cells)",
+    "source_link": "https://doi.org/10.5067/5NHC22T9375G",
+    "start_year": 1990,
+    "end_year": 2020,
+    "points": [
+      {
+        "year": 1990,
+        "value": 0.242
+      },
+      {
+        "year": 1991,
+        "value": 0.2483
+      },
+      {
+        "year": 1992,
+        "value": 0.2454
+      },
+      {
+        "year": 1993,
+        "value": 0.245
+      },
+      {
+        "year": 1994,
+        "value": 0.2447
+      },
+      {
+        "year": 1995,
+        "value": 0.2454
+      },
+      {
+        "year": 1996,
+        "value": 0.2535
+      },
+      {
+        "year": 1997,
+        "value": 0.2538
+      },
+      {
+        "year": 1998,
+        "value": 0.248
+      },
+      {
+        "year": 1999,
+        "value": 0.2469
+      },
+      {
+        "year": 2000,
+        "value": 0.2424
+      },
+      {
+        "year": 2001,
+        "value": 0.2428
+      },
+      {
+        "year": 2002,
+        "value": 0.2493
+      },
+      {
+        "year": 2003,
+        "value": 0.2519
+      },
+      {
+        "year": 2004,
+        "value": 0.2522
+      },
+      {
+        "year": 2005,
+        "value": 0.246
+      },
+      {
+        "year": 2006,
+        "value": 0.2547
+      },
+      {
+        "year": 2007,
+        "value": 0.2482
+      },
+      {
+        "year": 2008,
+        "value": 0.2471
+      },
+      {
+        "year": 2009,
+        "value": 0.2526
+      },
+      {
+        "year": 2010,
+        "value": 0.2556
+      },
+      {
+        "year": 2011,
+        "value": 0.2495
+      },
+      {
+        "year": 2012,
+        "value": 0.248
+      },
+      {
+        "year": 2013,
+        "value": 0.2499
+      },
+      {
+        "year": 2014,
+        "value": 0.2521
+      },
+      {
+        "year": 2015,
+        "value": 0.2489
+      },
+      {
+        "year": 2016,
+        "value": 0.2454
+      },
+      {
+        "year": 2017,
+        "value": 0.2416
+      },
+      {
+        "year": 2018,
+        "value": 0.2561
+      },
+      {
+        "year": 2019,
+        "value": 0.2477
+      },
+      {
+        "year": 2020,
+        "value": 0.2439
+      }
+    ],
+    "result": {
+      "slope_per_decade": 0.00115,
+      "p_value": 0.2475,
+      "test_used": "Mann-Kendall",
+      "is_significant": false
+    }
+  },
+  {
+    "name": "Nile Delta - Precipitation",
+    "variable": "Precipitation",
+    "region": "Nile Delta (land within lon 29.5 to 32.5 E, lat 30 to 31.7 N)",
+    "units": "mm/year",
+    "source_name": "GPCP Precipitation Level 3 Monthly 0.5-Degree V3.3 (GPCPMON), NASA GES DISC; variable sat_gauge_precip (mm/day) x days in month, summed over 12 months; land cells = at least half of the FLDAS cells inside are land; latitude-weighted land mean, every 0.5-degree cell (16 cells)",
+    "source_link": "https://doi.org/10.5067/MEASURES/GPCP/DATA306",
+    "start_year": 1990,
+    "end_year": 2020,
+    "points": [
+      {
+        "year": 1990,
+        "value": 58.7
+      },
+      {
+        "year": 1991,
+        "value": 137.0
+      },
+      {
+        "year": 1992,
+        "value": 99.1
+      },
+      {
+        "year": 1993,
+        "value": 51.7
+      },
+      {
+        "year": 1994,
+        "value": 104.5
+      },
+      {
+        "year": 1995,
+        "value": 42.4
+      },
+      {
+        "year": 1996,
+        "value": 56.0
+      },
+      {
+        "year": 1997,
+        "value": 86.8
+      },
+      {
+        "year": 1998,
+        "value": 79.9
+      },
+      {
+        "year": 1999,
+        "value": 28.7
+      },
+      {
+        "year": 2000,
+        "value": 96.6
+      },
+      {
+        "year": 2001,
+        "value": 59.5
+      },
+      {
+        "year": 2002,
+        "value": 87.5
+      },
+      {
+        "year": 2003,
+        "value": 72.3
+      },
+      {
+        "year": 2004,
+        "value": 84.1
+      },
+      {
+        "year": 2005,
+        "value": 62.6
+      },
+      {
+        "year": 2006,
+        "value": 65.5
+      },
+      {
+        "year": 2007,
+        "value": 55.6
+      },
+      {
+        "year": 2008,
+        "value": 65.5
+      },
+      {
+        "year": 2009,
+        "value": 66.4
+      },
+      {
+        "year": 2010,
+        "value": 31.2
+      },
+      {
+        "year": 2011,
+        "value": 83.8
+      },
+      {
+        "year": 2012,
+        "value": 94.5
+      },
+      {
+        "year": 2013,
+        "value": 97.2
+      },
+      {
+        "year": 2014,
+        "value": 49.6
+      },
+      {
+        "year": 2015,
+        "value": 101.7
+      },
+      {
+        "year": 2016,
+        "value": 68.1
+      },
+      {
+        "year": 2017,
+        "value": 32.6
+      },
+      {
+        "year": 2018,
+        "value": 83.4
+      },
+      {
+        "year": 2019,
+        "value": 112.0
+      },
+      {
+        "year": 2020,
+        "value": 175.6
+      }
+    ],
+    "result": {
+      "slope_per_decade": 3.79,
+      "p_value": 0.5074,
+      "test_used": "Mann-Kendall",
+      "is_significant": false
+    }
+  },
+  {
+    "name": "Nile Delta - Actual evapotranspiration",
+    "variable": "Actual evapotranspiration",
+    "region": "Nile Delta (land within lon 29.5 to 32.5 E, lat 30 to 31.7 N)",
+    "units": "mm/year",
+    "source_name": "FLDAS Noah Land Surface Model L4 Global Monthly 0.1 x 0.1 degree (MERRA-2 and CHIRPS) V001 (FLDAS_NOAH01_C_GL_M), NASA GES DISC; variable Evap_tavg (kg/m2/s) x 86400 x days in month, summed over 12 months; latitude-weighted land mean, every 0.1-degree cell (399 cells)",
+    "source_link": "https://doi.org/10.5067/5NHC22T9375G",
+    "start_year": 1990,
+    "end_year": 2020,
+    "points": [
+      {
+        "year": 1990,
+        "value": 63.9
+      },
+      {
+        "year": 1991,
+        "value": 70.1
+      },
+      {
+        "year": 1992,
+        "value": 70.6
+      },
+      {
+        "year": 1993,
+        "value": 51.8
+      },
+      {
+        "year": 1994,
+        "value": 69.2
+      },
+      {
+        "year": 1995,
+        "value": 53.0
+      },
+      {
+        "year": 1996,
+        "value": 49.7
+      },
+      {
+        "year": 1997,
+        "value": 48.3
+      },
+      {
+        "year": 1998,
+        "value": 53.2
+      },
+      {
+        "year": 1999,
+        "value": 49.3
+      },
+      {
+        "year": 2000,
+        "value": 59.8
+      },
+      {
+        "year": 2001,
+        "value": 47.2
+      },
+      {
+        "year": 2002,
+        "value": 58.4
+      },
+      {
+        "year": 2003,
+        "value": 58.0
+      },
+      {
+        "year": 2004,
+        "value": 66.7
+      },
+      {
+        "year": 2005,
+        "value": 50.1
+      },
+      {
+        "year": 2006,
+        "value": 54.1
+      },
+      {
+        "year": 2007,
+        "value": 49.5
+      },
+      {
+        "year": 2008,
+        "value": 51.1
+      },
+      {
+        "year": 2009,
+        "value": 46.9
+      },
+      {
+        "year": 2010,
+        "value": 35.7
+      },
+      {
+        "year": 2011,
+        "value": 49.1
+      },
+      {
+        "year": 2012,
+        "value": 60.8
+      },
+      {
+        "year": 2013,
+        "value": 52.9
+      },
+      {
+        "year": 2014,
+        "value": 48.0
+      },
+      {
+        "year": 2015,
+        "value": 55.7
+      },
+      {
+        "year": 2016,
+        "value": 95.1
+      },
+      {
+        "year": 2017,
+        "value": 64.7
+      },
+      {
+        "year": 2018,
+        "value": 76.3
+      },
+      {
+        "year": 2019,
+        "value": 62.8
+      },
+      {
+        "year": 2020,
+        "value": 78.2
+      }
+    ],
+    "result": {
+      "slope_per_decade": 0.67,
+      "p_value": 0.8384,
+      "test_used": "Mann-Kendall",
+      "is_significant": false
+    }
+  },
+  {
+    "name": "Nile Delta - Soil moisture (0-10 cm)",
+    "variable": "Soil moisture (0-10 cm)",
+    "region": "Nile Delta (land within lon 29.5 to 32.5 E, lat 30 to 31.7 N)",
+    "units": "m3/m3",
+    "source_name": "FLDAS Noah Land Surface Model L4 Global Monthly 0.1 x 0.1 degree (MERRA-2 and CHIRPS) V001 (FLDAS_NOAH01_C_GL_M), NASA GES DISC; variable SoilMoi00_10cm_tavg, mean of 12 months; latitude-weighted land mean, every 0.1-degree cell (399 cells)",
+    "source_link": "https://doi.org/10.5067/5NHC22T9375G",
+    "start_year": 1990,
+    "end_year": 2020,
+    "points": [
+      {
+        "year": 1990,
+        "value": 0.1771
+      },
+      {
+        "year": 1991,
+        "value": 0.1793
+      },
+      {
+        "year": 1992,
+        "value": 0.1808
+      },
+      {
+        "year": 1993,
+        "value": 0.1771
+      },
+      {
+        "year": 1994,
+        "value": 0.1808
+      },
+      {
+        "year": 1995,
+        "value": 0.1756
+      },
+      {
+        "year": 1996,
+        "value": 0.1745
+      },
+      {
+        "year": 1997,
+        "value": 0.1748
+      },
+      {
+        "year": 1998,
+        "value": 0.1756
+      },
+      {
+        "year": 1999,
+        "value": 0.1751
+      },
+      {
+        "year": 2000,
+        "value": 0.1785
+      },
+      {
+        "year": 2001,
+        "value": 0.1729
+      },
+      {
+        "year": 2002,
+        "value": 0.1766
+      },
+      {
+        "year": 2003,
+        "value": 0.1749
+      },
+      {
+        "year": 2004,
+        "value": 0.1769
+      },
+      {
+        "year": 2005,
+        "value": 0.1714
+      },
+      {
+        "year": 2006,
+        "value": 0.1751
+      },
+      {
+        "year": 2007,
+        "value": 0.1725
+      },
+      {
+        "year": 2008,
+        "value": 0.1715
+      },
+      {
+        "year": 2009,
+        "value": 0.1694
+      },
+      {
+        "year": 2010,
+        "value": 0.1661
+      },
+      {
+        "year": 2011,
+        "value": 0.1734
+      },
+      {
+        "year": 2012,
+        "value": 0.1754
+      },
+      {
+        "year": 2013,
+        "value": 0.1714
+      },
+      {
+        "year": 2014,
+        "value": 0.1736
+      },
+      {
+        "year": 2015,
+        "value": 0.175
+      },
+      {
+        "year": 2016,
+        "value": 0.1833
+      },
+      {
+        "year": 2017,
+        "value": 0.1782
+      },
+      {
+        "year": 2018,
+        "value": 0.1795
+      },
+      {
+        "year": 2019,
+        "value": 0.1751
+      },
+      {
+        "year": 2020,
+        "value": 0.1818
+      }
+    ],
+    "result": {
+      "slope_per_decade": -0.00084,
+      "p_value": 0.2837,
+      "test_used": "Mann-Kendall",
+      "is_significant": false
+    }
+  },
+  {
+    "name": "Sahel - Precipitation",
+    "variable": "Precipitation",
+    "region": "Sahel (land within lon -17 W to 20 E, lat 12 to 18 N)",
+    "units": "mm/year",
+    "source_name": "GPCP Precipitation Level 3 Monthly 0.5-Degree V3.3 (GPCPMON), NASA GES DISC; variable sat_gauge_precip (mm/day) x days in month, summed over 12 months; land cells = at least half of the FLDAS cells inside are land; latitude-weighted land mean, every 0.5-degree cell (878 cells)",
+    "source_link": "https://doi.org/10.5067/MEASURES/GPCP/DATA306",
+    "start_year": 1990,
+    "end_year": 2020,
+    "points": [
+      {
+        "year": 1990,
+        "value": 317.9
+      },
+      {
+        "year": 1991,
+        "value": 405.0
+      },
+      {
+        "year": 1992,
+        "value": 396.9
+      },
+      {
+        "year": 1993,
+        "value": 369.3
+      },
+      {
+        "year": 1994,
+        "value": 532.4
+      },
+      {
+        "year": 1995,
+        "value": 386.3
+      },
+      {
+        "year": 1996,
+        "value": 367.0
+      },
+      {
+        "year": 1997,
+        "value": 365.4
+      },
+      {
+        "year": 1998,
+        "value": 439.1
+      },
+      {
+        "year": 1999,
+        "value": 521.6
+      },
+      {
+        "year": 2000,
+        "value": 391.1
+      },
+      {
+        "year": 2001,
+        "value": 396.5
+      },
+      {
+        "year": 2002,
+        "value": 354.8
+      },
+      {
+        "year": 2003,
+        "value": 497.3
+      },
+      {
+        "year": 2004,
+        "value": 383.3
+      },
+      {
+        "year": 2005,
+        "value": 448.8
+      },
+      {
+        "year": 2006,
+        "value": 419.1
+      },
+      {
+        "year": 2007,
+        "value": 419.8
+      },
+      {
+        "year": 2008,
+        "value": 450.5
+      },
+      {
+        "year": 2009,
+        "value": 423.9
+      },
+      {
+        "year": 2010,
+        "value": 513.0
+      },
+      {
+        "year": 2011,
+        "value": 386.5
+      },
+      {
+        "year": 2012,
+        "value": 513.6
+      },
+      {
+        "year": 2013,
+        "value": 424.4
+      },
+      {
+        "year": 2014,
+        "value": 407.5
+      },
+      {
+        "year": 2015,
+        "value": 431.3
+      },
+      {
+        "year": 2016,
+        "value": 440.9
+      },
+      {
+        "year": 2017,
+        "value": 423.7
+      },
+      {
+        "year": 2018,
+        "value": 451.9
+      },
+      {
+        "year": 2019,
+        "value": 465.3
+      },
+      {
+        "year": 2020,
+        "value": 519.5
+      }
+    ],
+    "result": {
+      "slope_per_decade": 27.55,
+      "p_value": 0.0053,
+      "test_used": "Mann-Kendall",
+      "is_significant": true
+    }
+  },
+  {
+    "name": "Sahel - Actual evapotranspiration",
+    "variable": "Actual evapotranspiration",
+    "region": "Sahel (land within lon -17 W to 20 E, lat 12 to 18 N)",
+    "units": "mm/year",
+    "source_name": "FLDAS Noah Land Surface Model L4 Global Monthly 0.1 x 0.1 degree (MERRA-2 and CHIRPS) V001 (FLDAS_NOAH01_C_GL_M), NASA GES DISC; variable Evap_tavg (kg/m2/s) x 86400 x days in month, summed over 12 months; latitude-weighted land mean, every 2nd 0.1-degree cell (5475 cells)",
+    "source_link": "https://doi.org/10.5067/5NHC22T9375G",
+    "start_year": 1990,
+    "end_year": 2020,
+    "points": [
+      {
+        "year": 1990,
+        "value": 305.3
+      },
+      {
+        "year": 1991,
+        "value": 316.4
+      },
+      {
+        "year": 1992,
+        "value": 316.9
+      },
+      {
+        "year": 1993,
+        "value": 306.9
+      },
+      {
+        "year": 1994,
+        "value": 368.3
+      },
+      {
+        "year": 1995,
+        "value": 347.0
+      },
+      {
+        "year": 1996,
+        "value": 324.3
+      },
+      {
+        "year": 1997,
+        "value": 329.1
+      },
+      {
+        "year": 1998,
+        "value": 350.8
+      },
+      {
+        "year": 1999,
+        "value": 394.0
+      },
+      {
+        "year": 2000,
+        "value": 353.7
+      },
+      {
+        "year": 2001,
+        "value": 351.6
+      },
+      {
+        "year": 2002,
+        "value": 334.5
+      },
+      {
+        "year": 2003,
+        "value": 363.5
+      },
+      {
+        "year": 2004,
+        "value": 331.0
+      },
+      {
+        "year": 2005,
+        "value": 350.8
+      },
+      {
+        "year": 2006,
+        "value": 335.9
+      },
+      {
+        "year": 2007,
+        "value": 324.6
+      },
+      {
+        "year": 2008,
+        "value": 347.4
+      },
+      {
+        "year": 2009,
+        "value": 342.8
+      },
+      {
+        "year": 2010,
+        "value": 373.3
+      },
+      {
+        "year": 2011,
+        "value": 343.2
+      },
+      {
+        "year": 2012,
+        "value": 382.6
+      },
+      {
+        "year": 2013,
+        "value": 359.0
+      },
+      {
+        "year": 2014,
+        "value": 338.4
+      },
+      {
+        "year": 2015,
+        "value": 340.2
+      },
+      {
+        "year": 2016,
+        "value": 358.9
+      },
+      {
+        "year": 2017,
+        "value": 344.9
+      },
+      {
+        "year": 2018,
+        "value": 357.5
+      },
+      {
+        "year": 2019,
+        "value": 362.8
+      },
+      {
+        "year": 2020,
+        "value": 384.2
+      }
+    ],
+    "result": {
+      "slope_per_decade": 13.84,
+      "p_value": 0.0041,
+      "test_used": "Mann-Kendall",
+      "is_significant": true
+    }
+  },
+  {
+    "name": "Sahel - Soil moisture (0-10 cm)",
+    "variable": "Soil moisture (0-10 cm)",
+    "region": "Sahel (land within lon -17 W to 20 E, lat 12 to 18 N)",
+    "units": "m3/m3",
+    "source_name": "FLDAS Noah Land Surface Model L4 Global Monthly 0.1 x 0.1 degree (MERRA-2 and CHIRPS) V001 (FLDAS_NOAH01_C_GL_M), NASA GES DISC; variable SoilMoi00_10cm_tavg, mean of 12 months; latitude-weighted land mean, every 2nd 0.1-degree cell (5475 cells)",
+    "source_link": "https://doi.org/10.5067/5NHC22T9375G",
+    "start_year": 1990,
+    "end_year": 2020,
+    "points": [
+      {
+        "year": 1990,
+        "value": 0.1879
+      },
+      {
+        "year": 1991,
+        "value": 0.1943
+      },
+      {
+        "year": 1992,
+        "value": 0.1919
+      },
+      {
+        "year": 1993,
+        "value": 0.1894
+      },
+      {
+        "year": 1994,
+        "value": 0.2023
+      },
+      {
+        "year": 1995,
+        "value": 0.1953
+      },
+      {
+        "year": 1996,
+        "value": 0.1913
+      },
+      {
+        "year": 1997,
+        "value": 0.1942
+      },
+      {
+        "year": 1998,
+        "value": 0.1968
+      },
+      {
+        "year": 1999,
+        "value": 0.2016
+      },
+      {
+        "year": 2000,
+        "value": 0.1926
+      },
+      {
+        "year": 2001,
+        "value": 0.1922
+      },
+      {
+        "year": 2002,
+        "value": 0.1897
+      },
+      {
+        "year": 2003,
+        "value": 0.1984
+      },
+      {
+        "year": 2004,
+        "value": 0.191
+      },
+      {
+        "year": 2005,
+        "value": 0.1965
+      },
+      {
+        "year": 2006,
+        "value": 0.1931
+      },
+      {
+        "year": 2007,
+        "value": 0.1935
+      },
+      {
+        "year": 2008,
+        "value": 0.1978
+      },
+      {
+        "year": 2009,
+        "value": 0.1978
+      },
+      {
+        "year": 2010,
+        "value": 0.2064
+      },
+      {
+        "year": 2011,
+        "value": 0.1953
+      },
+      {
+        "year": 2012,
+        "value": 0.2074
+      },
+      {
+        "year": 2013,
+        "value": 0.198
+      },
+      {
+        "year": 2014,
+        "value": 0.1947
+      },
+      {
+        "year": 2015,
+        "value": 0.199
+      },
+      {
+        "year": 2016,
+        "value": 0.2003
+      },
+      {
+        "year": 2017,
+        "value": 0.1969
+      },
+      {
+        "year": 2018,
+        "value": 0.2023
+      },
+      {
+        "year": 2019,
+        "value": 0.2009
+      },
+      {
+        "year": 2020,
+        "value": 0.2068
+      }
+    ],
+    "result": {
+      "slope_per_decade": 0.00329,
+      "p_value": 0.0004,
+      "test_used": "Mann-Kendall",
+      "is_significant": true
+    }
+  }
+]

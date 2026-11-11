@@ -3,12 +3,13 @@ from django.db import models
 
 class Site(models.Model):
     VARIABLE_CHOICES = [
-        ('ice', 'Sea ice extent'),
-        ('sea', 'Sea level change'),
-        ('rain', 'Precipitation'),
+                ('Precipitation', 'Precipitation'),
+        ('Actual evapotranspiration', 'Actual evapotranspiration'),
+        ('Soil moisture (0-10 cm)', 'Soil moisture (0-10 cm)'),
+
     ]
     name = models.CharField(max_length=100)
-    variable = models.CharField(max_length=10, choices=VARIABLE_CHOICES)
+    variable = models.CharField(max_length=40, choices=VARIABLE_CHOICES)
     region = models.CharField(max_length=100)
     units = models.CharField(max_length=50)
     source_name = models.CharField(max_length=200)

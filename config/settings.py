@@ -130,3 +130,7 @@ STORAGES = {
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Frontend: plain HTML/CSS/JS in the frontend/ folder, served by WhiteNoise at the site root.
+WHITENOISE_ROOT = BASE_DIR / 'frontend'
+WHITENOISE_INDEX_FILE = True

@@ -1,0 +1,2909 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #050b14;
+  color: #f1f5f9;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* الحاوية الرئيسية للموقع */
+.app-container {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 94vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header الترويسة */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.brand-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: #fde68a;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.brand-sub {
+  font-size: 0.6rem;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding-bottom: 0.2rem;
+  transition: color 0.2s;
+}
+
+.nav-btn:hover {
+  color: #fcd34d;
+}
+
+.nav-btn.active {
+  color: #fbbf24;
+  border-bottom: 2px solid #fbbf24;
+}
+
+.logo-img {
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Footer الفوتر */
+.footer {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+/* --- الصفحة الأولى --- */
+.hero-section {
+  margin: auto 0;
+  padding: 2rem 0;
+  max-width: 650px;
+}
+
+.case-tag {
+  font-size: 0.75rem;
+  color: #fcd34d;
+  letter-spacing: 0.1em;
+  font-family: monospace;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: Georgia, serif;
+  font-size: 3.75rem;
+  line-height: 1.15;
+  color: #fef3c7;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+  color: #fbbf24;
+}
+
+.hero-desc {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  background: linear-gradient(to right, #d97706, #f59e0b);
+  color: #020617;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 2rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+  transition: transform 0.2s;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+}
+
+/* --- الصفحة الثانية (البردية ومارلين) --- */
+/* 1. سنترة البردية والبنت في منتصف الشاشة بالظبط وجنب بعض */
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* سنترة أفقية */
+  gap: 2.5rem; /* المسافة بين البردية ومارلين */
+  margin: auto; /* سنترة رأسية */
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* 2. تكبير حجم البردية */
+.papyrus-wrapper {
+  position: relative;
+  width: 680px; /* حجم كبير للبردية */
+  max-width: 50vw;
+  flex-shrink: 0;
+}
+
+.papyrus-bg-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+}
+
+/* 3. تفرغ النص وضبطه في المساحة الفاتحة جوه البردية */
+.papyrus-overlay-content {
+  position: absolute;
+  inset: 0;
+  /* المسافات الداخلية بتجبر النص يفضل جوه جسم البردية الأصفر وميخرجش برة */
+  padding: 16% 16% 14% 16%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.paper-text {
+  font-family: Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  font-weight: 650;
+  color: #2b1708; /* لون بني غامق واضح جداً */
+  margin: 0;
+  text-align: left;
+}
+
+.next-arrow {
+  position: absolute;
+  bottom: 12%;
+  right: 14%;
+  font-size: 1.8rem;
+  color: #2b1708;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 4. ضبط حجم ومحاذاة البنت جنب البردية */
+.character-wrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.character-img {
+  height: 480px;
+  max-height: 60vh;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
+}
+/* سهم المتابعة في زاوية البردية */
+.next-arrow {
+  position: absolute;
+  bottom: 12%;
+  right: 14%;
+  font-size: 1.8rem;
+  color: #2b1708;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* حاوية شخصية مارلين */
+.character-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.character-img {
+  height: 520px;
+  max-height: 65vh;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
+}
+/* تنسيقات خطوة إدخال الاسم داخل البردية (الصفحة 3) */
+.name-step-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.papyrus-title {
+  font-family: Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #2b1708;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* صندوق الإدخال (Input Box) بنفس ديزاين الفيجما */
+.input-box-wrapper {
+  width: 85%;
+}
+
+.papyrus-input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  background: rgba(190, 155, 105, 0.25); /* خلفية بيج شفافة ورقيقة */
+  border: 1.5px solid #8c5a2b; /* إطار بني خفيف يناسب البردية */
+  border-radius: 8px;
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+  color: #2b1708;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.papyrus-input::placeholder {
+  color: #7a5839;
+  opacity: 0.75;
+}
+
+.papyrus-input:focus {
+  border-color: #4a280c;
+  background: rgba(190, 155, 105, 0.35);
+}
+/* تنسيقات صفحة مكتب مارلين (الصفحة الرابعة) */
+.office-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* فقاعة الكلام (Speech Bubble) فوق رأس مارلين أو بجانبها */
+.speech-bubble {
+  position: absolute;
+  top: 18%;
+  left: 16%;
+  background: #fdf5e6;
+  color: #2b1708;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  max-width: 320px;
+  border: 1px solid #d4b595;
+  z-index: 20;
+}
+
+/* سهم صغير لفقاعة الكلام */
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 40px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #fdf5e6 transparent;
+  display: block;
+  width: 0;
+}
+
+.speech-bubble p {
+  margin: 0 0 5px 0;
+}
+
+/* مكان شخصية مارلين في المكتب */
+.office-character {
+  position: absolute;
+  bottom: 0;
+  right: 30%;
+  z-index: 10;
+}
+
+.office-character-img {
+  height: 65vh;
+  object-fit: contain;
+}
+
+/* منطقة الكرة الأرضية القابلة للضغط (بنحطها فوق مكان الكرة الأرضية في الصورة الخلفية) */
+.globe-clickable-area {
+  position: absolute;
+  top: 38%;
+  right: 14%;
+  width: 180px;
+  height: 220px;
+  cursor: pointer;
+  z-index: 25;
+  border-radius: 50%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* تأثير إضاءة خفيف أو هفر لما الماوس يقف على الكرة الأرضية عشان نلفت انتباه المستخدم */
+.globe-clickable-area:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.6);
+  border: 2px dashed rgba(251, 191, 36, 0.8);
+}
+/* =========================================================
+   تنسيقات الصفحة الخامسة: الكرة الأرضية 3D ومنطقة التحقيق
+   ========================================================= */
+
+/* تغميق الخلفية في الصفحة الخامسة عشان الكرة والأزرار يظهروا بوضوح */
+.globe-stage-overlay {
+  background: rgba(10, 7, 5, 0.72) !important;
+}
+
+.globe-stage-section {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+}
+
+/* --- الكرة الأرضية الـ 3D --- */
+.globe-3d-container {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  margin-top: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+}
+
+.globe-3d-sphere {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  /* ظل خارجي وداخلي يعطي إحساس التجسيم والعمق */
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(212, 163, 89, 0.25);
+  background: #1b3b48;
+}
+
+/* خريطة الأرض الملفوفة المتحركة (3D Rotation Effect) */
+.globe-3d-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  /* خريطة عتيقة دافئة مطابقة لألوان التصميم */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Equirectangular_projection_SW.jpg/1280px-Equirectangular_projection_SW.jpg');
+  background-size: 50% 100%;
+  background-repeat: repeat-x;
+  filter: sepia(0.45) contrast(1.1) brightness(0.92) hue-rotate(-10deg);
+  animation: rotateEarth3D 38s linear infinite;
+}
+
+/* طبقة الإضاءة والظلال الكروية (3D Shading & Specular Highlight) */
+.globe-3d-lighting {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 32% 30%,
+    rgba(255, 236, 195, 0.38) 0%,
+    rgba(255, 215, 150, 0.08) 35%,
+    rgba(15, 10, 5, 0.55) 75%,
+    rgba(5, 3, 2, 0.92) 100%
+  );
+  box-shadow: inset -18px -18px 40px rgba(0, 0, 0, 0.85),
+              inset 10px 10px 25px rgba(255, 230, 180, 0.3);
+  pointer-events: none;
+}
+
+@keyframes rotateEarth3D {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- النقاط الـ 3 على الكرة الأرضية --- */
+.globe-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(20, 15, 10, 0.85);
+  border: 2px solid #fdf5e6;
+  color: #fdf5e6;
+  font-size: 0.78rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 30;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+}
+
+.globe-hotspot .hotspot-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(253, 245, 230, 0.65);
+  animation: pulseRing 2s infinite;
+  pointer-events: none;
+}
+
+.globe-hotspot:hover,
+.globe-hotspot.active {
+  background: #d97724;
+  border-color: #fff;
+  transform: translate(-50%, -50%) scale(1.25);
+  box-shadow: 0 0 18px rgba(217, 119, 36, 0.95);
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* --- بطاقة ملف القضية على الشمال (Case File Card) --- */
+.case-file-card {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 2rem;
+  width: 245px;
+background: linear-gradient(145deg, #c99d66, #a87b46);
+  border: 2px solid #f3dfb9;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+  color: #2b1708;
+  z-index: 25;
+}
+
+.case-file-header {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin: 0 0 0.65rem 0;
+  color: #3a200a;
+  border-bottom: 1px solid rgba(58, 32, 10, 0.25);
+  padding-bottom: 0.3rem;
+}
+
+.case-file-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.case-row {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.case-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #3a200a;
+}
+
+.proof-box {
+  background: rgba(138, 96, 48, 0.45);
+  border: 1px solid rgba(58, 32, 10, 0.35);
+  border-radius: 3px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #4a2b10;
+}
+
+/* --- منطقة الأسئلة والأزرار في المنتصف بالأسفل --- */
+.investigation-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  z-index: 25;
+  margin-top: auto;
+}
+
+.question-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.question-title {
+  color: #f5ebd6;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.pills-row {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pill-btn {
+  background: #f3e5c8;
+  color: #2b1708;
+  border: 1.5px solid #d4b595;
+  padding: 0.55rem 1.35rem;
+  border-radius: 25px;
+  font-family: Georgia, serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.pill-btn:hover {
+  transform: translateY(-2px);
+  background: #fff4de;
+}
+
+.pill-btn.selected {
+  background: #d97724;
+  color: #ffffff;
+  border-color: #f6b26b;
+  box-shadow: 0 0 16px rgba(217, 119, 36, 0.75);
+}
+
+/* --- زرار Open the case file على اليمين بالأسفل --- */
+.open-case-btn {
+  position: absolute;
+  bottom: 1.4rem;
+  right: 2rem;
+  background: linear-gradient(135deg, #e5b54f, #c89228);
+  color: #1f1205;
+  border: 1.5px solid #fae19d;
+  padding: 0.7rem 1.4rem;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  z-index: 30;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s ease;
+}
+
+.open-case-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 22px rgba(229, 181, 79, 0.8);
+}
+
+.open-case-btn .arrow-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.35s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================================================
+   تنسيقات الصفحة السادسة: غرفة الأدلة (The Evidence Room)
+   ========================================================= */
+
+.evidence-room-section {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ورقة المستند العتيقة على الشمال فوق */
+.evidence-paper-box {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  width: 340px;
+  background: linear-gradient(135deg, #f5ebd6, #e6d2b5);
+  border: 2px solid #d4b595;
+  border-radius: 4px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  color: #2b1708;
+  font-family: Georgia, serif;
+  z-index: 20;
+}
+
+.evidence-subtitle {
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: #8c6239;
+  margin: 0 0 0.3rem 0;
+  text-transform: uppercase;
+}
+
+.evidence-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0 0 0.6rem 0;
+  color: #2b1708;
+}
+
+.evidence-desc {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #4a2b10;
+  margin: 0;
+}
+
+.evidence-desc span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.35s;
+  color: #613915;
+}
+
+/* صورة الظرف في المنتصف */
+.envelope-container {
+  position: relative;
+  width: 480px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 25;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.75));
+}
+
+.envelope-container:hover {
+  transform: scale(1.03);
+}
+
+.envelope-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* --- تعديلات الصفحة السادسة (غرفة الأدلة) --- */
+
+/* 1. تحريك الظرف ناحية اليمين شوية */
+.evidence-room-section {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* بنزود مساحة بسيطة من الشمال عشان الظرف يميل لليمين */
+  padding-left: 120px; 
+}
+
+/* 2. ضبط ورقة المستند العتيقة على الشمال لتطابق تنسيق الصفحات السابقة */
+.evidence-paper-box {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  width: 330px;
+  background: linear-gradient(145deg, #f7ebd0, #ebd5b3);
+  border: 2.5px solid #d4b595;
+  border-radius: 8px;
+  padding: 1.1rem 1.3rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  color: #2b1708;
+  font-family: Georgia, serif;
+  z-index: 20;
+}
+
+/* 3. ضبط مكان جدول ملف القضية تحت على الشمال زي الصفحة الخامسة بالظبط */
+.evidence-room-section .case-file-card {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2rem;
+  width: 265px;
+  z-index: 25;
+}
+/* =========================================================
+   الصفحة السابعة: غرفة الأدلة والآلة الزمنية التفاعلية
+   ========================================================= */
+
+.evidence-room-stage {
+  width: min(100%, 1060px);
+  max-width: 1060px;
+  height: min(66vh, 570px);
+  min-height: 490px;
+  margin: auto;
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: 275px minmax(0, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* العمود الأيسر */
+.evidence-left-col {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.evidence-mini-brand {
+  color: #f7dfb5;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.evidence-main-title {
+  font-family: Georgia, serif;
+  font-size: 29px;
+  font-weight: 400;
+  color: #fff0d3;
+  margin: 3px 0 0;
+}
+
+.evidence-topic-sub {
+  color: #f5dfbd;
+  font-size: 10px;
+  letter-spacing: .4px;
+  margin: 0;
+}
+
+.plain-words-box {
+  background: rgba(248, 224, 185, .83);
+  color: #755535;
+  border: 1px solid rgba(255, 235, 199, .65);
+  border-radius: 15px;
+  padding: 13px 14px;
+  font-size: 10px;
+  line-height: 1.55;
+  box-shadow: 0 3px 8px rgba(45, 23, 5, .12);
+}
+
+/* MARLENE CHARACTER + QUOTE */
+.marlene-clue-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 2px;
+}
+
+.marlene-avatar-card {
+  width: 82px;
+  height: 94px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 2px solid #f4d8a9;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,.3);
+}
+
+.marlene-quote-card {
+  position: relative;
+  background: #f5e5c6;
+  color: #263344;
+  padding: 13px 12px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  box-shadow: 0 5px 12px rgba(0,0,0,.15);
+}
+
+.marlene-quote-card::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 45%;
+  border-width: 9px 10px 9px 0;
+  border-style: solid;
+  border-color: transparent #f5e5c6 transparent transparent;
+}
+
+/* CASE FILE */
+.compact-case-card {
+  margin-top: auto;
+  width: 185px !important;
+  padding: 10px !important;
+  background: rgba(180, 129, 69, .55);
+  border: 3px solid #e7c594;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 2px rgba(255, 230, 188, .25), 0 5px 12px rgba(0,0,0,.2);
+}
+
+.case-file-header {
+  color: #f8dfb9;
+  font-size: 14px;
+  margin-bottom: 9px;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+}
+
+.case-row {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: 4px;
+  align-items: center;
+}
+
+.case-label {
+  color: #f5dcae;
+  font-size: 9px;
+}
+
+.proof-box {
+  height: 27px;
+  background: rgba(116, 75, 34, .35);
+  border: 1px dashed rgba(77, 48, 20, .65);
+  color: #183b56;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.proof-box.solved {
+  background: #a6b98b;
+  color: #263e20;
+}
+
+/* العمود الأيمن: ورقة الأدلة الكبيرة */
+.evidence-right-col {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.big-cork-paper {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  padding: 30px 38px 20px;
+  background: linear-gradient(135deg, #f1dfbd, #e9d0a6);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 5px 15px rgba(48, 27, 8, .2), inset 0 0 25px rgba(160, 111, 53, .12);
+}
+
+.big-cork-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid rgba(157, 118, 68, .15);
+}
+
+/* RED PIN */
+.red-pin {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: -12px;
+  right: 12px;
+  background: radial-gradient(circle at 30% 25%, #ff7770, #d10e0e 55%, #7d0909);
+  border-radius: 50%;
+  box-shadow: 2px 4px 5px rgba(0,0,0,.35);
+}
+
+/* PHOTO & TOP GRID */
+.paper-top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.satellite-photo-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 290px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid #bfa37a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.satellite-photo {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.year-badge-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(25, 14, 5, 0.78);
+  color: #f7e6c4;
+  font-size: 9px;
+  padding: 0.3rem 0.6rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* GRAPH */
+.graph-timeline-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.interactive-svg-chart {
+  background: rgba(255,250,240,0.5);
+  border: 1px solid #c7a878;
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+.trend-svg {
+  width: 100%;
+  height: 120px;
+  display: block;
+}
+
+.time-machine-control {
+  background: rgba(229, 207, 169, .8);
+  border: 1px solid #c6a77b;
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+
+.tm-label {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+  color: #523a21;
+  margin-bottom: 0.25rem;
+}
+
+.tm-slider {
+  width: 100%;
+  accent-color: #c68d28;
+  cursor: pointer;
+}
+
+.tm-years-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: #6e4723;
+  font-weight: bold;
+}
+
+/* STATS & VERDICT */
+.stats-verdict-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 10px;
+}
+
+.stat-mini-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.stat-box {
+  background: #f8efe0;
+  border: 1px solid #d4b990;
+  border-radius: 4px;
+  padding: 0.45rem;
+  text-align: center;
+  color: #3a200a;
+}
+
+.stat-box strong {
+  display: block;
+  font-size: 0.8rem;
+  color: #8b3a1e;
+}
+
+.stat-box span {
+  font-size: 0.6rem;
+  color: #6b4c30;
+}
+
+.verdict-green-card {
+  background: #98b888;
+  border: 2px solid #5e804e;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #162b0d;
+}
+
+.verdict-check {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.verdict-green-card h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-family: Georgia, serif;
+}
+
+/* SCIENTIFIC NOTES */
+.scientific-notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  font-size: 0.65rem;
+  line-height: 1.4;
+  margin-top: 10px;
+}
+
+.note-beige-card,
+.note-cream-card {
+  background: #f9f1e4;
+  border: 1px solid #d4b990;
+  border-radius: 5px;
+  padding: 0.6rem 0.75rem;
+  color: #3a200a;
+}
+
+.note-beige-card p {
+  margin: 0 0 0.35rem 0;
+}
+
+.notes-right-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.note-green-card {
+  background: #9eb98f;
+  border: 1px solid #6b8a5b;
+  border-radius: 5px;
+  padding: 0.55rem 0.75rem;
+  color: #182c0f;
+}
+
+/* PROOF BUTTON */
+.proof-action-center {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.proof-trigger-btn {
+  display: flex;
+  align-items: center;
+  background: rgba(250, 239, 217, .8);
+  border: 1px dashed #9e815a;
+  border-radius: 12px;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  min-width: 220px;
+  max-width: 280px;
+}
+
+.proof-trigger-btn:hover {
+  transform: scale(1.03);
+}
+
+.proof-badge {
+  background: #e4b64e;
+  color: #24364a;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 9px 12px;
+  text-transform: uppercase;
+}
+
+.proof-text {
+  padding: 0.55rem 1rem;
+  font-size: 10px;
+  color: #756c5d;
+  font-family: Georgia, serif;
+}
+
+/* BOTTOM BAR */
+.paper-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 34px;
+  padding-top: 8px;
+}
+
+.added-badges-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.added-pill {
+  background: #e6d5b5;
+  color: #35522c;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.final-nav-btns {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.wood-btn {
+  background: #d7b887;
+  color: #402a14;
+  border: 1.5px solid #967449;
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.wood-btn:hover {
+  background: #e8cfa9;
+}
+
+.primary-wood {
+  background: #f5ebd6;
+}
+
+/* ANIMATIONS */
+.fade-in-up {
+  animation: fadeInUp 0.35s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .evidence-room-stage {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+  .evidence-left-col {
+    height: auto;
+  }
+  .compact-case-card {
+    margin-top: 10px;
+  }
+  .big-cork-paper {
+    min-height: 420px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .paper-top-grid {
+    grid-template-columns: 1fr;
+  }
+  .satellite-photo-wrapper {
+    max-width: 100%;
+  }
+  .evidence-main-title {
+    font-size: 24px;
+  }
+  .marlene-quote-card {
+    font-size: 9px;
+  }
+}
+
+
+
+/* ==========================================
+   THE MARLENE FILE
+   PAGE 7 - EVIDENCE ROOM
+   FIGMA DESIGN MATCH
+========================================== */
+
+.evidence-room-stage {
+  width: min(100%, 1060px);
+  max-width: 1060px;
+  height: min(66vh, 570px);
+  min-height: 490px;
+  margin: auto;
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: 275px minmax(0, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* LEFT SIDE */
+
+.evidence-left-col {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.evidence-mini-brand {
+  color: #f7dfb5;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.evidence-main-title {
+  font-family: Georgia, serif;
+  font-size: 29px;
+  font-weight: 400;
+  color: #fff0d3;
+  margin: 3px 0 0;
+}
+
+.evidence-topic-sub {
+  color: #f5dfbd;
+  font-size: 10px;
+  letter-spacing: .4px;
+  margin: 0;
+}
+
+/* Plain words */
+
+.plain-words-box {
+  background: rgba(248, 224, 185, .83);
+  color: #755535;
+  border: 1px solid rgba(255, 235, 199, .65);
+  border-radius: 15px;
+  padding: 13px 14px;
+  font-size: 10px;
+  line-height: 1.55;
+  box-shadow: 0 3px 8px rgba(45, 23, 5, .12);
+}
+
+/* MARLENE CHARACTER + QUOTE */
+
+.marlene-clue-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 2px;
+}
+
+.marlene-avatar-card {
+  width: 82px;
+  height: 94px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 2px solid #f4d8a9;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,.3);
+}
+
+.marlene-quote-card {
+  position: relative;
+  background: #f5e5c6;
+  color: #263344;
+  padding: 13px 12px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  box-shadow: 0 5px 12px rgba(0,0,0,.15);
+}
+
+.marlene-quote-card::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 45%;
+  border-width: 9px 10px 9px 0;
+  border-style: solid;
+  border-color: transparent #f5e5c6 transparent transparent;
+}
+
+/* CASE FILE */
+
+.compact-case-card {
+  margin-top: auto;
+  width: 185px !important;
+  padding: 10px !important;
+  background: rgba(180, 129, 69, .55);
+  border: 3px solid #e7c594;
+  border-radius: 3px;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 230, 188, .25),
+    0 5px 12px rgba(0,0,0,.2);
+}
+
+.case-file-header {
+  color: #f8dfb9;
+  font-size: 14px;
+  margin-bottom: 9px;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+}
+
+.case-row {
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: 4px;
+}
+
+.case-label {
+  color: #f5dcae;
+  font-size: 9px;
+}
+
+.proof-box {
+  height: 27px;
+  background: rgba(116, 75, 34, .35);
+  border: 1px dashed rgba(77, 48, 20, .65);
+  color: #183b56;
+  border-radius: 3px;
+}
+
+.proof-box.solved {
+  background: #a6b98b;
+  color: #263e20;
+}
+
+/* RIGHT SIDE */
+
+.evidence-right-col {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.big-cork-paper {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  padding: 30px 38px 20px;
+  background:
+    linear-gradient(135deg, #f1dfbd, #e9d0a6);
+  border: none;
+  border-radius: 3px;
+  box-shadow:
+    0 5px 15px rgba(48, 27, 8, .2),
+    inset 0 0 25px rgba(160, 111, 53, .12);
+}
+
+/* torn paper effect */
+
+.big-cork-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid rgba(157, 118, 68, .15);
+}
+
+/* RED PIN */
+
+.red-pin {
+  width: 17px;
+  height: 17px;
+  top: -12px;
+  right: 5px;
+  background: radial-gradient(
+    circle at 30% 25%,
+    #ff7770,
+    #d10e0e 55%,
+    #7d0909
+  );
+  border-radius: 50%;
+  box-shadow: 2px 4px 5px rgba(0,0,0,.35);
+}
+
+/* PHOTO AREA */
+
+.paper-top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.satellite-photo-wrapper {
+  width: 100%;
+  max-width: 290px;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,.15);
+}
+
+.satellite-photo {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.year-badge-overlay {
+  font-size: 9px;
+}
+
+/* GRAPH */
+
+.graph-timeline-wrapper {
+  width: 100%;
+  gap: 10px;
+}
+
+.interactive-svg-chart {
+  background: rgba(255,255,255,.25);
+  border: 1px solid #c7a878;
+  border-radius: 5px;
+}
+
+.trend-svg {
+  width: 100%;
+  height: 130px;
+}
+
+/* TIME MACHINE */
+
+.time-machine-control {
+  background: rgba(229, 207, 169, .8);
+  border: 1px solid #c6a77b;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.tm-label {
+  font-size: 11px;
+  color: #523a21;
+}
+
+.tm-slider {
+  accent-color: #c68d28;
+}
+
+/* PROOF BUTTON */
+
+.proof-action-center {
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.proof-trigger-btn {
+  min-width: 220px;
+  max-width: 280px;
+  border: 1px dashed #9e815a;
+  border-radius: 12px;
+  background: rgba(250, 239, 217, .8);
+}
+
+.proof-badge {
+  background: #e4b64e;
+  color: #24364a;
+  padding: 11px 13px;
+  font-size: 10px;
+}
+
+.proof-text {
+  color: #756c5d;
+  font-family: Georgia, serif;
+  font-size: 10px;
+}
+
+/* BOTTOM BAR */
+
+.paper-bottom-bar {
+  padding-top: 8px;
+}
+
+.added-pill {
+  background: #e6d5b5;
+  color: #35522c;
+}
+
+.wood-btn {
+  background: #d7b887;
+  border-color: #967449;
+  color: #402a14;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .evidence-room-stage {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .evidence-left-col {
+    height: auto;
+  }
+
+  .compact-case-card {
+    margin-top: 10px;
+  }
+
+  .big-cork-paper {
+    min-height: 420px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .paper-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .satellite-photo-wrapper {
+    max-width: 100%;
+  }
+
+  .evidence-main-title {
+    font-size: 24px;
+  }
+
+  .marlene-quote-card {
+    font-size: 9px;
+  }
+}
+/* تثبيت صندوق Case File في الصفحة السابعة في مكانه المحدد تماماً بدون أي تحريك */
+.evidence-room-stage .evidence-left-col {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+}
+
+.evidence-room-stage .compact-case-card {
+  position: relative !important;
+  margin-top: 15px !important;
+  margin-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+
+/* تنسيقات صفحة ملفات التحقيق (Investigation Files) */
+.investigation-files-section {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.files-paper-container {
+  background: rgba(235, 218, 185, 0.94);
+  border: 4px solid #5c3a1e;
+  border-radius: 8px;
+  padding: 25px 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.files-header-block {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px dashed #8b6f47;
+  padding-bottom: 12px;
+}
+
+.files-mini-brand {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: #7c5c32;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.files-main-title {
+  font-family: serif;
+  font-size: 1.8rem;
+  color: #3b220c;
+  margin: 0 0 4px 0;
+}
+
+.files-sub-title {
+  font-size: 0.62rem;
+  color: #6b4c2b;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+/* شبكة الكروت 3 × 3 */
+.cases-grid-3x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.case-item-card {
+  background: #f7edd9;
+  border: 2px solid #8b6f47;
+  border-radius: 6px;
+  padding: 12px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.case-item-card.completed-case {
+  background: #fcf4e3;
+  border-color: #5c3a1e;
+}
+
+.case-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.case-num-tag {
+  font-size: 0.65rem;
+  font-weight: bold;
+  color: #5c3a1e;
+}
+
+.case-status-badge {
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.green-badge {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.dark-badge {
+  background: #e2d9c5;
+  color: #5c4033;
+  border: 1px solid #d4c5ab;
+}
+
+.case-title-text {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #3b220c;
+  margin: 0 0 2px 0;
+}
+
+.case-location-text {
+  font-size: 0.65rem;
+  color: #7c5c32;
+  margin: 0 0 10px 0;
+}
+
+.case-action-btn {
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.orange-btn {
+  background: #b56333;
+  color: white;
+}
+.orange-btn:hover {
+  background: #9a4e24;
+}
+
+.muted-btn {
+  background: #d1c4b2;
+  color: #7a6855;
+  cursor: not-allowed;
+}
+
+.files-footer-bar {
+  text-align: center;
+  border-top: 2px dashed #8b6f47;
+  padding-top: 15px;
+}
+
+.return-globe-btn {
+  background: #5c3a1e;
+  color: #f5ebd6;
+  border: 2px solid #3b220c;
+  padding: 8px 25px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+
+.return-globe-btn:hover {
+  background: #3b220c;
+}
+
+
+
+/* FULL SCREEN BACKGROUND - INVESTIGATION FILES PAGE */
+
+.app-container:has(.investigation-files-section) {
+  background-image: url("/image/bg7.jpeg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  min-height: 100vh;
+}
+
+.investigation-files-section {
+  min-height: calc(100vh - 100px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: transparent !important;
+}
+
+
+/* FULL SCREEN BACKGROUND - INVESTIGATION FILES PAGE */
+
+.app-container:has(.investigation-files-section) {
+  background-image: url("image/investigation-bg.jpeg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  min-height: 100vh;
+}
+
+.investigation-files-section {
+  min-height: calc(100vh - 100px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: transparent !important;
+}
+
+
+
+/* =====================================
+   INVESTIGATION FILES - FULL BACKGROUND
+===================================== */
+
+.app-container:has(.investigation-files-section) {
+  background-image: url("image/bg7.jpeg") !important;
+  background-size: 150% auto !important;
+  min-height: 100vh !important;
+  width: 100%;
+}
+
+/* Main section */
+.investigation-files-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent !important;
+}
+
+/* Remove backgrounds, borders and shadows from content boxes */
+.investigation-files-section *:not(button):not(svg):not(path) {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Remove borders from containers */
+.investigation-files-section div,
+.investigation-files-section section,
+.investigation-files-section article {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Keep buttons visible and preserve their styling */
+.investigation-files-section button {
+  position: relative;
+  z-index: 2;
+}
+
+/* Remove decorative box backgrounds */
+.investigation-files-section::before,
+.investigation-files-section::after {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+/* =====================================
+   THE MARLENE FILE - CASE REPORT 001
+===================================== */
+
+.case-report-section {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent !important;
+}
+
+.case-report-paper-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 600px;
+    padding: 35px 45px;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    color: #293c50;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* HEADER */
+.report-header-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #b77b48;
+    padding-bottom: 12px;
+    max-width: 450px;
+}
+
+.report-mini-brand {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #293c50;
+}
+
+.report-sub-brand {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #765b40;
+    margin-top: 3px;
+}
+
+.report-main-title {
+    font-size: 34px;
+    font-weight: normal;
+    margin: 12px 0 3px;
+    color: #293c50;
+}
+
+.report-sub-title {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #604d3a;
+    margin: 0;
+}
+
+/* REPORT GRID */
+.report-grid-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-areas:
+        "summary verdict"
+        "evidence conclusion"
+        "stats sources"
+        "note note";
+    gap: 13px 15px;
+}
+
+.report-left-stack,
+.report-right-stack {
+    display: contents;
+}
+
+.report-card-box {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.report-left-stack > .report-card-box:nth-child(1) { grid-area: summary; }
+.report-left-stack > .report-card-box:nth-child(2) { grid-area: evidence; }
+.report-left-stack > .report-card-box:nth-child(3) { grid-area: stats; }
+.report-left-stack > .report-card-box:nth-child(4) { grid-area: note; }
+
+.report-right-stack > .report-card-box:nth-child(1) { grid-area: verdict; }
+.report-right-stack > .report-card-box:nth-child(2) { grid-area: conclusion; }
+.report-right-stack > .report-card-box:nth-child(3) { grid-area: sources; }
+
+/* SECTION HEADINGS */
+.report-card-box h4 {
+    background: #293c50;
+    color: #f5e9d0;
+    padding: 6px 12px;
+    border-radius: 5px 25px 25px 5px;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0.3px;
+    margin: 0;
+    width: 75%;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+}
+
+/* CASE SUMMARY */
+.summary-row-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: rgba(239, 225, 195, 0.9);
+    border: 1px solid #a88b62;
+    border-radius: 10px;
+    min-height: 75px;
+}
+
+.summary-row-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: #38404a;
+}
+
+.summary-thumb-circle {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+    border-radius: 50%;
+    background-image: url("image/earth.png");
+    background-size: 450% auto !important;
+    background-position: center;
+    border: 2px solid #c59a63;
+}
+
+/* EVIDENCE COLLECTED */
+.evidence-3-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+}
+
+.mini-evidence-card {
+    min-width: 0;
+    min-height: 115px;
+    padding: 8px;
+    background: rgba(239, 225, 195, 0.92);
+    border: 1px solid #a88b62;
+    border-radius: 9px;
+}
+
+.mini-evidence-card small {
+    display: block;
+    color: #b56f43;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.mini-evidence-card p {
+    margin: 3px 0;
+    font-size: 12px;
+    color: #35404a;
+}
+
+.mini-evidence-card img {
+    display: block;
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #a88b62;
+    border-radius: 7px;
+    margin: 7px 0;
+}
+
+/* STATISTICAL FINDINGS */
+.stats-3-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+}
+
+.stats-3-grid > div {
+    min-height: 65px;
+    padding: 9px;
+    background: rgba(239, 225, 195, 0.92);
+    border: 1px solid #a88b62;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+.stats-3-grid span {
+    color: #a86e48;
+    font-size: 13px;
+}
+
+.stats-3-grid strong {
+    color: #35404a;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+
+/* FINAL VERDICT */
+.verdict-content-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(239, 225, 195, 0.95);
+    border: 1px solid #a88b62;
+    border-radius: 10px;
+    min-height: 75px;
+}
+
+.big-green-check {
+    font-size: 40px;
+    color: #285d30;
+    font-weight: bold;
+}
+
+.verdict-content-row h3 {
+    color: #40563a;
+    font-size: 21px;
+    font-weight: normal;
+    margin: 0 0 5px;
+    text-align: center;
+}
+
+.verdict-content-row p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+    color: #41413b;
+}
+
+/* CONCLUSION */
+.report-right-stack > .report-card-box:nth-child(2) > p {
+    background: rgba(239, 225, 195, 0.95);
+    border: 1px solid #a88b62;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #35404a;
+}
+
+/* SOURCES & LIMITATIONS */
+.sources-list {
+    background: rgba(239, 225, 195, 0.95);
+    border: 1px solid #a88b62;
+    border-radius: 10px;
+    padding: 9px 15px 9px 30px;
+    margin: 0;
+}
+
+.sources-list li {
+    color: #41413b;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+.sources-list li::marker {
+    color: #bb8051;
+}
+
+/* MARLENE FINAL NOTE */
+.marlene-note-box {
+    display: grid;
+    grid-template-columns: 125px 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    gap: 5px 12px;
+    background: rgba(239, 225, 195, 0.95);
+    border: 1px solid #a88b62;
+    border-radius: 10px;
+    padding: 9px 12px;
+}
+
+.marlene-note-header {
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.marlene-note-header h4 {
+    width: 100%;
+    font-size: 11px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 7px 5px;
+}
+
+.report-marlene-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #bd8a5a;
+}
+
+.marlene-quote-text {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #45413a;
+}
+
+/* FOOTER BUTTON */
+.report-footer-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    gap: 20px;
+}
+
+.return-globe-text-btn {
+    background: #d9b75c;
+    color: #293c50;
+    border: 1px solid #b18c43;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.return-globe-text-btn:hover {
+    background: #293c50;
+    color: #f5e9d0;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .case-report-section {
+        padding: 15px 8px;
+        align-items: flex-start;
+    }
+
+    .case-report-paper-container {
+        padding: 25px 15px;
+    }
+
+    .report-header-block {
+        max-width: 100%;
+    }
+
+    .report-main-title {
+        font-size: 28px;
+    }
+
+    .report-grid-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "summary"
+            "evidence"
+            "stats"
+            "verdict"
+            "conclusion"
+            "sources"
+            "note";
+        gap: 15px;
+    }
+
+    .report-card-box h4 {
+        width: 85%;
+    }
+
+    .summary-row-content {
+        flex-wrap: wrap;
+    }
+
+    .evidence-3-cols {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .marlene-note-box {
+        grid-template-columns: 95px 1fr;
+    }
+
+    .marlene-note-header h4 {
+        font-size: 9px;
+    }
+
+    .marlene-quote-text {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .case-report-paper-container {
+        padding: 20px 10px;
+    }
+
+    .evidence-3-cols {
+        gap: 5px;
+    }
+
+    .mini-evidence-card {
+        padding: 5px;
+    }
+
+    .mini-evidence-card p {
+        font-size: 10px;
+    }
+
+    .mini-evidence-card img {
+        height: 75px;
+    }
+
+    .stats-3-grid {
+        gap: 5px;
+    }
+
+    .stats-3-grid strong {
+        font-size: 11px;
+    }
+
+    .verdict-content-row h3 {
+        font-size: 17px;
+    }
+}
+
+/* ==========================================
+   THE MARLENE FILE
+   PAGE 10 & 11 - COMPARE LOCATIONS
+========================================== */
+
+.compare-locations-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    background: transparent !important;
+}
+
+.compare-paper-container {
+    background: rgba(235, 218, 185, 0.96);
+    border: 4px solid #5c3a1e;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Header Block */
+.compare-header-block {
+    text-align: left;
+    margin-bottom: 18px;
+    border-bottom: 1.5px dashed #8b6f47;
+    padding-bottom: 10px;
+}
+
+.compare-mini-brand {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: #5c4033;
+    font-weight: bold;
+    display: block;
+}
+
+.compare-sub-brand {
+    font-size: 0.52rem;
+    color: #7c5c32;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.compare-main-title {
+    font-family: Georgia, serif;
+    font-size: 1.85rem;
+    color: #2c1a0b;
+    margin: 0 0 2px 0;
+}
+
+.compare-sub-title {
+    font-size: 0.6rem;
+    color: #5c4033;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Top 3 Columns Grid */
+.compare-columns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Individual Cards */
+.compare-column-card {
+    background: #f5e6cc;
+    border: 2px solid #8b6f47;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark Navy Card Top Header */
+.col-top-tag {
+    background: #233342;
+    color: #f5e6cc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 12px;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.year-range-pill {
+    font-size: 0.55rem;
+    background: #3d5265;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: #e6d5b8;
+}
+
+/* Card Content Blocks */
+.col-content-block {
+    padding: 5px 12px;
+}
+
+.col-content-block:first-of-type {
+    padding-top: 8px;
+}
+
+.col-content-block:last-of-type {
+    padding-bottom: 10px;
+}
+
+.col-content-block h4 {
+    font-size: 0.62rem;
+    color: #3b220c;
+    font-weight: 800;
+    margin: 0 0 2px 0;
+    letter-spacing: 0.4px;
+}
+
+.col-content-block p {
+    font-size: 0.63rem;
+    color: #4a3219;
+    margin: 0 0 0 12px;
+    line-height: 1.28;
+}
+
+/* Stamp Verdict Badge */
+.mini-verdict-badge {
+    background: #e6f0e4;
+    color: #2e6b34;
+    border: 1.5px solid #8eb890;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 12px;
+    transform: rotate(-3deg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Bottom Section Elements (Chart, Summary, Analysis) */
+.chart-mini-title {
+    font-size: 0.65rem;
+    font-weight: bold;
+    color: #2c1a0b;
+    text-align: center;
+    padding: 8px 8px 4px;
+}
+
+.mini-svg-chart-box {
+    background: #f7edd9;
+    border: 1px solid #d4c5ab;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 0 10px 10px;
+}
+
+.comparison-bullets {
+    margin: 0;
+    padding: 8px 12px 6px 24px;
+    font-size: 0.63rem;
+    color: #3b220c;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.25;
+}
+
+.key-insight-box {
+    background: #ebd8b7;
+    border: 1.5px solid #b58c5a;
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin: 4px 12px 10px;
+    text-align: center;
+}
+
+.key-insight-box strong {
+    display: block;
+    font-size: 0.68rem;
+    color: #3b220c;
+    margin-bottom: 2px;
+}
+
+.key-insight-box p {
+    font-size: 0.58rem;
+    font-style: italic;
+    color: #4a3219;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Analysis Row / Dark Card */
+.flex-analysis-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #233342;
+    color: #f5e6cc;
+    border-radius: 6px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.analysis-avatar-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2b857;
+    flex-shrink: 0;
+}
+
+.analysis-desc-text {
+    font-size: 0.64rem;
+    color: #e8dcc8;
+    line-height: 1.38;
+    margin: 0;
+}
+
+/* Footer & Return Button */
+.compare-footer-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.return-globe-text-btn {
+    background: #d8a74a;
+    color: #2c1a0b;
+    border: 1.5px solid #8b6320;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 0.65rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.return-globe-text-btn:hover {
+    background: #e5b75c;
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .compare-columns-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==========================================
+   تنسيق الجزء الأخير في الصفحة (Marlene's Final Analysis)
+========================================== */
+
+/* تخطيط الصف السفلي (الـ 3 كروت في آخر الصفحة) */
+.compare-bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* كارت تحليل مارلين الأخير (الخلفية الكحلي والصورة) */
+.marlene-dark-analysis-card,
+.flex-analysis-row {
+    background: #233342 !important;
+    border: 2px solid #16222d !important;
+    border-radius: 8px !important;
+    padding: 14px 16px !important;
+    color: #f5e6cc !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.marlene-analysis-heading {
+    font-family: Georgia, serif !important;
+    font-size: 0.82rem !important;
+    color: #e2b857 !important;
+    margin: 0 0 8px 0 !important;
+    letter-spacing: 0.6px !important;
+    text-transform: uppercase !important;
+}
+
+.marlene-analysis-body,
+.analysis-desc-text {
+    font-size: 0.66rem !important;
+    color: #e8dcc8 !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+    font-style: normal !important;
+}
+
+/* تنسيق صورة مارلين لو موجودة بجانب النص */
+.analysis-avatar-img {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid #e2b857 !important;
+    flex-shrink: 0 !important;
+}
+
+/* زرار العودة (Return To The Globe) في آخر الصفحة على اليمين */
+.compare-footer-bar {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-top: 10px !important;
+}
+
+.return-globe-gold-btn,
+.return-globe-text-btn {
+    background: #d8a74a !important;
+    color: #2c1a0b !important;
+    border: 1.5px solid #8b6320 !important;
+    border-radius: 4px !important;
+    padding: 6px 14px !important;
+    font-size: 0.65rem !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.return-globe-gold-btn:hover,
+.return-globe-text-btn:hover {
+    background: #e5b75c !important;
+}
+
+/* للتجاوب مع الشاشات الصغيرة */
+@media (max-width: 900px) {
+    .compare-bottom-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+/* ==========================================
+   THE MARLENE FILE
+   PAGE 11 - COMPARE THREE LOCATIONS (FIXED & COMPLETE)
+========================================== */
+
+/* شبكة الصف السفلي لصفحة 11 (3 كروت بجانب بعض) */
+.compare-bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   تنسيق كارت تحليل مارلين الأخير (مضمون 100%)
+========================================== */
+div.compare-paper-container div.marlene-dark-analysis-card {
+    background: #233342 !important;
+    border: 2px solid #16222d !important;
+    border-radius: 8px !important;
+    padding: 18px 20px !important;
+    color: #f5e6cc !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    box-sizing: border-box !important;
+    margin-top: 15px !important;
+}
+
+div.compare-paper-container h4.marlene-analysis-heading {
+    font-family: Georgia, serif !important;
+    font-size: 0.85rem !important;
+    color: #e2b857 !important;
+    margin: 0 0 8px 0 !important;
+    letter-spacing: 0.8px !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+}
+
+div.compare-paper-container p.marlene-analysis-body {
+    font-size: 0.68rem !important;
+    color: #e8dcc8 !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    font-style: normal !important;
+}
+
+/* =========================================================
+   PAGE 10 & 11 - PARCHMENT COMPARISON DESIGN
+   All selectors are scoped to .cmp-page to protect other pages.
+========================================================= */
+.cmp-page {
+  width: 100%;
+  min-height: calc(100vh - 115px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 22px;
+  color: #2c2219;
+  font-family: 'Montserrat', sans-serif;
+}
+.cmp-parchment-board {
+  width: 100%;
+  max-width: 1200px;
+  background: radial-gradient(circle at center, #f5e6c8 0%, #e5cca0 70%, #cfa972 100%);
+  border: 2px solid #8c6239;
+  border-radius: 6px;
+  padding: 24px 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.65), inset 0 0 60px rgba(139,90,43,.3);
+  position: relative;
+}
+.cmp-board-header { margin-bottom: 16px; }
+.cmp-brand-tag { display: inline-flex; flex-direction: column; border-bottom: 1.5px solid #8c6239; padding-bottom: 3px; margin-bottom: 6px; }
+.cmp-brand-main { font-family: 'Cinzel', Georgia, serif; font-size: 13px; font-weight: 700; color: #4a3520; letter-spacing: 1px; }
+.cmp-brand-sub { font-size: 8.5px; font-weight: 700; color: #6e5032; letter-spacing: .8px; }
+.cmp-main-title { font-family: 'Lora', Georgia, serif; font-size: 31px; font-weight: 600; color: #2b1e12; line-height: 1.15; margin: 0; }
+.cmp-subtitle { font-size: 10px; font-weight: 700; color: #5c4328; letter-spacing: .7px; margin-top: 3px; }
+.cmp-board-grid { display: grid; gap: 18px; margin-bottom: 18px; }
+.cmp-two-grid { grid-template-columns: 1fr 1fr 1.05fr; }
+.cmp-folder-card { display: flex; flex-direction: column; min-width: 0; }
+.cmp-folder-tab { background: #263849; color: #f3e5c8; padding: 7px 12px; border-radius: 8px 18px 0 0; display: flex; align-items: center; gap: 8px; width: 92%; border: 1.5px solid #1a2633; border-bottom: 0; }
+.cmp-pin-icon { font-size: 12px; }
+.cmp-tab-title { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; flex: 1; }
+.cmp-tab-year { font-size: 8.5px; background: rgba(255,255,255,.12); padding: 2px 6px; border-radius: 3px; white-space: nowrap; }
+.cmp-folder-body { background: linear-gradient(180deg,#f3e4c6 0%,#ead5ae 100%); border: 1.5px solid #9c7548; border-radius: 0 8px 8px 8px; padding: 12px 14px; flex: 1; box-shadow: 0 4px 10px rgba(66,42,18,.15); display: flex; flex-direction: column; justify-content: space-between; gap: 9px; }
+.cmp-section-item h4 { font-size: 10.5px; font-weight: 700; color: #3a2818; margin: 0 0 3px; letter-spacing: .3px; }
+.cmp-section-item p { font-size: 9.5px; line-height: 1.3; color: #4a3723; padding-left: 10px; margin: 0; }
+.cmp-verdict-row { display: flex; align-items: center; justify-content: space-between; gap: 5px; }
+.cmp-stamp-badge { display: inline-block; color: #2e6f40; border: 1.5px solid #2e6f40; background: rgba(46,111,64,.08); font-size: 8px; font-weight: 700; padding: 3px 6px; border-radius: 3px; transform: rotate(-5deg); text-transform: uppercase; text-align: center; }
+.cmp-comparison-column { display: flex; flex-direction: column; gap: 11px; min-width: 0; }
+.cmp-chart-card .cmp-folder-body { padding: 10px; justify-content: center; }
+.cmp-chart-title { text-align: center; font-size: 10.5px; font-weight: 700; color: #2b1e12; margin-bottom: 4px; }
+.cmp-line-chart { width: 100%; height: auto; display: block; overflow: visible; }
+.cmp-axis-label-title { font-size: 8.5px; font-weight: 700; fill: #3a2818; }
+.cmp-axis-tick, .cmp-axis-tick-x { font-size: 8px; fill: #4a3723; font-weight: 600; }
+.cmp-axis-tick-x { text-anchor: middle; }
+.cmp-grid-line { stroke: rgba(140,98,57,.25); stroke-width: .8; }
+.cmp-axis-line { stroke: #5c4328; stroke-width: 1.2; }
+.cmp-legend-text { font-size: 8px; font-weight: 600; fill: #2b1e12; }
+.cmp-summary-box, .cmp-insight-box { background: #f3e4c6; border: 1.5px solid #9c7548; border-radius: 6px; overflow: hidden; box-shadow: 0 3px 8px rgba(66,42,18,.12); }
+.cmp-dark-header { background: #263849; color: #f3e5c8; text-align: center; font-family: 'Lora', Georgia, serif; font-size: 13px; font-weight: 600; padding: 6px 10px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.cmp-summary-content { padding: 9px 11px; display: flex; flex-direction: column; gap: 7px; }
+.cmp-summary-row { display: flex; align-items: center; gap: 8px; }
+.cmp-summary-row > span { font-size: 13px; width: 18px; flex-shrink: 0; text-align: center; }
+.cmp-summary-row p { font-size: 8.8px; line-height: 1.3; color: #3a2818; margin: 0; }
+.cmp-star-icon { color: #d48c46; }
+.cmp-insight-content { padding: 9px 12px; text-align: center; }
+.cmp-insight-content p { font-family: 'Lora', Georgia, serif; font-style: italic; font-size: 10.5px; color: #2b1e12; line-height: 1.35; margin: 0; }
+.cmp-board-footer { display: flex; align-items: stretch; justify-content: space-between; gap: 14px; }
+.cmp-marlene-banner { flex: 1; min-width: 0; background: #263849; border: 2px solid #8c6239; border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; gap: 13px; box-shadow: 0 4px 12px rgba(0,0,0,.25); }
+.cmp-avatar-frame { width: 58px; height: 58px; border-radius: 6px; overflow: hidden; border: 2px solid #d4a359; flex-shrink: 0; }
+.cmp-avatar-frame img, .cmp-avatar-frame-large img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cmp-marlene-text h3 { font-family: 'Cinzel', Georgia, serif; font-size: 12px; color: #e5b869; margin: 0 0 4px; letter-spacing: .5px; }
+.cmp-marlene-text p { font-size: 9px; line-height: 1.4; color: #f0e6d2; margin: 0; }
+.cmp-footer-buttons { display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.cmp-return-btn { background: linear-gradient(180deg,#dfb878 0%,#c49652 100%); color: #2b1e12; border: 1.5px solid #8c6239; border-radius: 5px; padding: 9px 13px; font-family: 'Montserrat',sans-serif; font-size: 9px; font-weight: 700; cursor: pointer; white-space: nowrap; box-shadow: 0 3px 6px rgba(0,0,0,.2); transition: transform .15s ease,filter .15s ease; }
+.cmp-return-btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
+
+/* PAGE 11 */
+.cmp-board-eleven { max-width: 1220px; padding: 20px 28px 16px; }
+.cmp-board-eleven .cmp-board-header { margin-bottom: 13px; }
+.cmp-top-locations-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-bottom: 15px; }
+.cmp-top-locations-grid .cmp-folder-body { padding: 10px 12px; gap: 7px; }
+.cmp-top-locations-grid .cmp-section-item h4 { font-size: 9.5px; }
+.cmp-top-locations-grid .cmp-section-item p { font-size: 8.8px; }
+.cmp-top-locations-grid .cmp-tab-title { font-size: 14px; }
+.cmp-bottom-analysis-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; align-items: stretch; }
+.cmp-middle-summary-column { display: flex; flex-direction: column; justify-content: space-between; gap: 9px; min-width: 0; }
+.cmp-marlene-analysis-card { background: #263849; border: 2px solid #8c6239; border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,.25); min-width: 0; }
+.cmp-marlene-analysis-card h3 { font-family: 'Cinzel',Georgia,serif; font-size: 12px; color: #e5b869; margin: 0 0 8px; letter-spacing: .5px; }
+.cmp-marlene-card-body { display: flex; align-items: flex-end; justify-content: space-between; gap: 9px; flex: 1; }
+.cmp-marlene-card-body p { font-size: 8.8px; line-height: 1.4; color: #f0e6d2; flex: 1; margin: 0; }
+.cmp-avatar-frame-large { width: 65px; height: 75px; border-radius: 6px; overflow: hidden; border: 2px solid #d4a359; flex-shrink: 0; }
+.cmp-board-footer-eleven { justify-content: flex-end; margin-top: 11px; }
+
+@media (max-width: 1050px) {
+  .cmp-two-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .cmp-comparison-column { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: stretch; }
+  .cmp-board-footer { flex-direction: column; }
+  .cmp-footer-buttons { flex-direction: row; justify-content: flex-end; flex-wrap: wrap; }
+}
+@media (max-width: 900px) {
+  .cmp-top-locations-grid, .cmp-bottom-analysis-grid { grid-template-columns: 1fr; }
+  .cmp-comparison-column { grid-template-columns: 1fr; }
+  .cmp-page { align-items: flex-start; }
+  .cmp-parchment-board { padding: 18px 14px; }
+  .cmp-marlene-card-body { align-items: center; }
+}
+@media (max-width: 600px) {
+  .cmp-two-grid { grid-template-columns: 1fr; }
+  .cmp-main-title { font-size: 25px; }
+  .cmp-board-footer-eleven { justify-content: center; }
+  .cmp-return-btn { white-space: normal; }
+}
+
+
+/* Remove the big background box - Compare Two Locations */
+
+.cmp-page-ten .cmp-parchment-board {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Remove the big background box - Compare Three Locations */
+
+.cmp-page-eleven .cmp-parchment-board {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.app-container:has(.investigation-files-section) {
+  background-image: url("image/bg7.jpeg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}

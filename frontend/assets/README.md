@@ -1,19 +1,23 @@
-# Artwork for the frontend
+# Artwork used by the frontend
 
-The site works without these files: each picture has a plain coloured fallback.
-Add a file with one of these exact names and it replaces the fallback. No code change is needed.
+All files here are served as they are. To replace a picture, save the new one under the same name.
 
-| File name | What it is | Where it shows |
+| File | What it is | Where it shows |
 |---|---|---|
-| `bg-space.jpg` | Starry space background | Welcome and Meet Marlene |
-| `earth.png` | The Earth with orbit lines (transparent or dark background) | Welcome, right side |
-| `logo.png` | "The Marlene File" logo (transparent) | Top right, every page |
-| `paper.png` | Old torn paper (transparent edges) | Meet Marlene, behind her words |
-| `marlene-wave.png` | Marlene waving, full body (transparent) | Meet Marlene, first page |
-| `marlene-think.png` | Marlene thinking (transparent) | Name page, and her small portrait elsewhere |
-| `bg-office.jpg` | Marlene at her desk in the office | Office and globe pages |
-| `globe.png` | The vintage globe (transparent) | Office and globe pages |
-| `bg-evidence.jpg` | Cork board or paper texture | Evidence room |
-| `bg-casefile.jpg` | Paper or folder texture | Case file and Compare |
+| `bg-welcome.jpg` | Earth and space | Welcome |
+| `bg-space.jpg` | Starry sky | Meet Marlene, celebration |
+| `bg-office.jpg` | Marlene at her desk | Office, choose the case |
+| `bg-evidence.jpg` | Cork board with wooden frame | Evidence Room |
+| `bg-casefile.jpg` | Old paper | Case file, and the scrolling pages |
+| `bg-files.jpg` | Paper on a desk | Investigation Files |
+| `logo.png`, `paper.png`, `evidence-paper.png` | Logo, torn paper, the pinned sheet | Header, Meet Marlene, Evidence Room |
+| `marlene-wave.png`, `marlene-think.png`, `marlene-portrait.png` | Marlene | Meet Marlene, name page, speech bubbles |
+| `globe-stand.png`, `globe-round.png` | The globes | Office, choose the case, case file |
+| `corkboard.png`, `pin.png`, `lock.png` | Small case-file board, push pin, lock | Several screens |
+| `envelope-closed.png`, `envelope-open.png` | The sealed case paper | Evidence Room (the open one is not used yet) |
+| `place-<region>-<variable>.jpg` | One photo per case (`med`, `nile`, `sahel` and `ppt`, `aet`, `soil`) | Evidence Room, case file |
 
-Keep each file under about 500 KB so the pages load quickly (JPG for photos, PNG only where transparency is needed).
+Missing: `place-med-ppt.jpg` (Mediterranean precipitation). Until it is added, that case shows a paper frame with the region's name.
+To add it, save the file here and add a `'med-ppt'` line to `MF.PHOTOS` in `content.js`.
+
+Photo credits live in `MF.PHOTOS` in `content.js` and are shown on the Credits page.

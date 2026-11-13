@@ -4,196 +4,167 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Marlene File — Earth System Trend Detective</title>
+  <meta name="description" content="An educational detective game about judging evidence in Earth data. NASA Space Apps Challenge 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<main id="app">
 
-<header class="topbar">
-  <a class="brand" href="#intro">
-    <span class="brand__name">THE MARLENE FILE</span>
-    <span class="brand__sub">EARTH SYSTEM TREND DETECTIVE</span>
-  </a>
-  <nav class="nav" aria-label="Main">
-    <a href="#intro" data-nav="intro">INTRO</a>
-    <a href="#globe" data-nav="globe">GLOBE</a>
-    <a href="#evidence" data-nav="evidence">EVIDENCE</a>
-    <a href="#casefile" data-nav="casefile">CASE FILE</a>
-    <a href="#compare" data-nav="compare">COMPARE</a>
+<!-- ============ Screen 1: Welcome ============ -->
+<section class="screen" id="intro"><div class="stage st-welcome">
+  <div class="brand" style="left:58px;top:38px"><b>THE MARLENE FILE</b><span>EARTH SYSTEM TREND DETECTIVE</span></div>
+  <nav class="topnav" style="left:606px;top:58px" aria-label="Screens">
+    <a href="#intro" class="is-on">INTRO</a><a href="#choose">GLOBE</a><a href="#celebrate">CELEBRATE</a><a href="#connect">CONNECT</a><a href="#choose">OWN CASE</a><a href="#final">COMPARE/SOLUTION</a>
   </nav>
-  <div class="logo" data-art="logo.png" aria-hidden="true"><span>The<br><b>Marlene</b><br>File</span></div>
-</header>
+  <div class="rule rule--orange" style="left:60px;top:92px;width:1003px"></div>
+  <img class="logo" src="assets/logo.png" alt="The Marlene File logo" style="left:1125px;top:34px;width:266px">
+  <p class="kicker" style="left:86px;top:244px">CASE FILE No. 2026 — STRICTLY CONFIDENTIAL</p>
+  <h1 class="hero-title" style="left:78px;top:262px">Every Trend<br>Leaves a Clue.</h1>
+  <p class="hero-lead" style="left:78px;top:455px;width:560px">Curious reports have reached us from the corners of the Earth, my dear detective: water fallen from the sky, water risen into the air, water kept in the ground — and in each case, one place behaves quite unlike the next. Three cases, nine places, and one great water cycle at the heart of it all. You alone have been summoned to follow the water.</p>
+  <a class="btn btn--cta" href="#meet" style="left:74px;top:649px;width:240px;height:55px">Start Investigating <span aria-hidden="true">→</span></a>
+  <div class="rule rule--orange" style="left:78px;top:742px;width:452px"></div>
+  <p class="footnote" style="left:74px;top:823px">NASA SPACE APPS CHALLENGE 2026 &nbsp;•&nbsp; INTERACTIVE EARTH SCIENCE PLATFORM &nbsp;•&nbsp; <a href="#credits">CREDITS</a></p>
+</div></section>
 
-<main>
+<!-- ============ Screens 2 and 3: Meet Marlene, your name ============ -->
+<section class="screen" id="meet" hidden><div class="stage st-space">
+  <div class="brand" style="left:58px;top:38px"><b>THE MARLENE FILE</b><span>EARTH SYSTEM TREND DETECTIVE</span></div>
+  <nav class="topnav" style="left:606px;top:58px" aria-label="Screens">
+    <a href="#intro" class="is-on">INTRO</a><a href="#choose">GLOBE</a><a href="#celebrate">CELEBRATE</a><a href="#connect">CONNECT</a><a href="#choose">OWN CASE</a><a href="#final">COMPARE/SOLUTION</a>
+  </nav>
+  <div class="rule rule--orange" style="left:60px;top:92px;width:1003px"></div>
+  <img class="logo" src="assets/logo.png" alt="" style="left:1125px;top:34px;width:266px">
+  <img class="abs" src="assets/paper.png" alt="" style="left:62px;top:185px;width:955px;height:627px">
+  <div id="meet-1">
+    <p class="paper-text" style="left:160px;top:300px;width:753px">Well, hello there! I’m Marlene, and I’ve been waiting for a curious mind like yours. Together, we’ll investigate Earth’s changing patterns, follow the evidence, and uncover what the data really tells us.</p>
+    <button class="paper-next" id="meet-next" style="left:870px;top:600px" aria-label="Next">›</button>
+    <img class="abs" src="assets/marlene-wave.png" alt="Marlene, a detective in a trench coat, waving" style="left:980px;top:160px;height:718px">
+  </div>
+  <form id="meet-2" hidden>
+    <label class="paper-text" for="name-input" style="left:160px;top:300px;width:753px">But first, what should I call you ?!</label>
+    <input id="name-input" class="paper-input" type="text" placeholder="Name" maxlength="24" autocomplete="given-name" style="left:226px;top:450px;width:535px;height:84px">
+    <button class="paper-next" type="submit" style="left:870px;top:600px" aria-label="Next">›</button>
+    <img class="abs" src="assets/marlene-think.png" alt="Marlene thinking, hand on chin" style="left:1040px;top:172px;height:703px">
+  </form>
+</div></section>
 
-  <!-- 1. Welcome -->
-  <section class="screen screen--space" id="intro">
-    <div class="earth" data-art="earth.png" aria-hidden="true"></div>
-    <div class="hero">
-      <p class="kicker">CASE FILE No. 2026 — STRICTLY CONFIDENTIAL</p>
-      <h1>Every Trend<br>Leaves a Clue.</h1>
-      <p class="lead">Curious reports have reached us from three corners of the Earth, my dear detective:
-        water fallen from the sky, water risen back into the air, and water hidden in the soil. In each case,
-        one place behaves quite unlike the next. Three clues, three places, and one great water cycle at the
-        heart of it all. You alone have been summoned to follow the water.</p>
-      <a class="btn btn--primary" href="#meet">Start Investigating <span aria-hidden="true">→</span></a>
-      <hr class="rule">
-      <p class="footnote">NASA SPACE APPS CHALLENGE 2026 &nbsp;•&nbsp; INTERACTIVE EARTH SCIENCE PLATFORM</p>
+<!-- ============ Screen 4: The office ============ -->
+<section class="screen" id="office" hidden><div class="stage st-office">
+  <div class="bubble bubble--office" id="office-bubble" style="left:267px;top:91px;width:345px"></div>
+  <button class="globe-btn" id="office-globe" style="left:1000px;top:238px" aria-label="Open the globe">
+    <img src="assets/globe-stand.png" alt="" style="height:523px"><span>CLICK HERE</span>
+  </button>
+</div></section>
+
+<!-- ============ Screens 5 and 11: Choose the case ============ -->
+<section class="screen" id="choose" hidden><div class="stage st-office st-dim">
+  <div class="globe-big" style="left:463px;top:68px;width:495px;height:495px">
+    <img src="assets/globe-round.png" alt="A vintage globe">
+  </div>
+  <div class="questions" style="left:300px;top:590px;width:840px">
+    <h2 class="q">1. What is your hunch about?</h2>
+    <div class="chips" id="hunch-chips" role="group" aria-label="Your hunch"></div>
+    <div id="place-block" hidden>
+      <h2 class="q">2. Where shall we investigate?</h2>
+      <div class="chips" id="place-chips" role="group" aria-label="The place"></div>
     </div>
-  </section>
+  </div>
+  <button class="btn btn--gold btn--pill" id="open-case" style="left:1113px;top:768px;width:287px;height:56px" hidden>Open the case file <span aria-hidden="true">›</span></button>
+  <div class="board" id="choose-board" style="left:49px;top:605px"></div>
+  <div class="mapcard" id="choose-map" style="left:1090px;top:92px;width:310px" hidden></div>
+  <div class="corner-links" style="right:40px;top:28px">
+    <button class="link-btn" id="demo-btn" type="button">▶ Watch a demo case</button>
+    <a class="link-btn" href="#files">Investigation files</a>
+  </div>
+</div></section>
 
-  <!-- 2. Meet Marlene -->
-  <section class="screen screen--space" id="meet" hidden>
-    <div class="meet">
-      <div class="paper" data-art="paper.png">
-        <div class="paper__page" id="meet-1">
-          <p class="paper__text">Well, hello there! I'm Marlene, and I've been waiting for a curious mind like yours.
-            Together, we'll investigate Earth's changing patterns, follow the evidence, and uncover what the data
-            really tells us.</p>
-          <button class="paper__next" id="meet-next-1" aria-label="Next">›</button>
-        </div>
-        <form class="paper__page" id="meet-2" hidden>
-          <label class="paper__text" for="name-input">But first, what should I call you?</label>
-          <input id="name-input" class="paper__input" type="text" placeholder="Name" maxlength="30" autocomplete="given-name">
-          <button class="paper__next" type="submit" aria-label="Next">›</button>
-        </form>
-      </div>
-      <div class="marlene" id="meet-marlene" data-art="marlene-wave.png" role="img" aria-label="Marlene, a detective in a trench coat"><span>Marlene</span></div>
-    </div>
-  </section>
+<!-- ============ Screen 6: The Evidence Room ============ -->
+<section class="screen" id="evidence" hidden><div class="stage st-evidence">
+  <div class="brand brand--cream" style="left:48px;top:55px"><b>THE MARLENE FILE</b><span>EARTH SYSTEM TREND DETECTIVE</span></div>
+  <div class="rule rule--gold" style="left:50px;top:111px;width:1003px"></div>
+  <h1 class="ev-title" style="left:51px;top:113px">The evidence room</h1>
+  <p class="ev-sub" id="ev-sub" style="left:55px;top:168px"></p>
+  <ol class="tracker" id="ev-tracker" style="left:470px;top:112px" aria-label="The five steps of the investigation"></ol>
+  <div class="plain" id="ev-plain" style="left:51px;top:193px;width:355px"></div>
+  <img class="portrait" src="assets/marlene-portrait.png" alt="Marlene" style="left:61px;top:404px;width:91px;height:134px">
+  <div class="bubble bubble--left" id="ev-says" style="left:188px;top:357px;width:259px" role="status"></div>
+  <div class="board" id="ev-board" style="left:61px;top:604px"></div>
 
-  <!-- 3. The office -->
-  <section class="screen screen--office" id="office" hidden>
-    <div class="office">
-      <div class="bubble" id="office-bubble"></div>
-      <button class="globe globe--small" id="office-globe" data-art="globe.png"><span>CLICK HERE</span></button>
-    </div>
-  </section>
+  <img class="abs" src="assets/evidence-paper.png" alt="" style="left:462px;top:148px;width:922px;height:654px">
+  <img class="abs" src="assets/pin.png" alt="" style="left:1359px;top:112px;width:44px">
 
-  <!-- 4. The globe: hunch and place -->
-  <section class="screen screen--office screen--dim" id="globe" hidden>
-    <div class="globe-stage">
-      <div class="globe globe--big" data-art="globe.png" aria-hidden="true">
-        <i class="pin" style="left:54%;top:36%"></i><i class="pin" style="left:60%;top:44%"></i><i class="pin" style="left:49%;top:50%"></i>
-      </div>
-      <div class="questions">
-        <h2 class="q">1. What is your hunch about?</h2>
-        <div class="chips" id="hunch-chips" role="group" aria-label="Your hunch"></div>
-        <div id="place-block" hidden>
-          <h2 class="q">2. Where shall we investigate?</h2>
-          <div class="chips" id="place-chips" role="group" aria-label="The place"></div>
-        </div>
-        <button class="btn btn--gold" id="open-case" hidden>Open the case file <span aria-hidden="true">›</span></button>
-      </div>
-    </div>
-    <aside class="board" id="mini-board" aria-label="Case file progress"></aside>
-  </section>
+  <div class="ev-wait" id="ev-wait" style="left:520px;top:300px;width:800px" role="status"></div>
+  <button class="seal" id="ev-seal" style="left:662px;top:230px;width:520px" hidden>
+    <img src="assets/envelope-closed.png" alt="A sealed envelope">
+    <span>A sealed case paper. Click to break the seal and examine what lies within…</span>
+  </button>
 
-  <!-- 5. Evidence room -->
-  <section class="screen screen--evidence" id="evidence" hidden>
-    <div class="ev">
-      <div class="ev__head">
-        <h1 class="ev__title" id="ev-title">The Evidence Room</h1>
-        <p class="ev__sub" id="ev-sub"></p>
-      </div>
+  <figure class="ev-photo" id="ev-photo" style="left:520px;top:192px;width:388px;height:217px" hidden></figure>
+  <div class="ev-chart" id="ev-chart" style="left:917px;top:182px;width:441px;height:242px" hidden></div>
 
-      <div class="ev__left">
-        <div class="card card--note" id="ev-plain"></div>
-        <div class="says">
-          <div class="marlene marlene--small" data-art="marlene-think.png" role="img" aria-label="Marlene"><span>M</span></div>
-          <blockquote id="ev-says"></blockquote>
-        </div>
-        <aside class="board board--inline" id="ev-board" aria-label="Case file progress"></aside>
-      </div>
+  <button class="proof-chip" id="ev-p1" style="left:791px;top:428px" hidden><b>PROOF<br>ONE</b><span>The raw readings, gathered over the years</span></button>
+  <button class="proof-chip" id="ev-p2" style="left:517px;top:432px" hidden><b>PROOF<br>TWO</b><span>The trend, traced through the data</span></button>
+  <button class="proof-chip" id="ev-p3" style="left:930px;top:522px" hidden><b>PROOF<br>THREE</b><span>The verdict, once all is weighed</span></button>
 
-      <div class="ev__main">
-        <div class="steps" id="ev-steps" role="tablist" aria-label="Proofs"></div>
-        <div id="ev-status" class="status" role="status"></div>
+  <div class="tile" id="t-change" style="left:517px;top:425px" hidden><b></b><span>Change / Decade</span></div>
+  <div class="tile" id="t-p" style="left:720px;top:424px" hidden><b></b><span>P-Value</span><i class="pbar" aria-hidden="true"><i id="pbar-mark"></i><u></u></i></div>
+  <form class="panel" id="ev-period" style="left:930px;top:424px;width:411px;height:78px" hidden>
+    <label for="ev-range" id="ev-range-label"></label>
+    <input type="range" id="ev-range" min="0" step="1">
+  </form>
+  <div class="tile" id="t-test" style="left:517px;top:514px" hidden><b class="sm">Mann–Kendall<br>Trend Test</b><span>Statistical Test</span></div>
+  <div class="tile" id="t-alpha" style="left:720px;top:514px" hidden><b>α = 0.05</b><span>Significance Level</span></div>
+  <div class="verdict" id="ev-verdict" style="left:930px;top:513px;width:411px;height:78px" hidden></div>
 
-        <article class="proof" id="proof-1" hidden>
-          <h2>Proof one: the raw readings</h2>
-          <p class="proof__hint" id="chart-caption"></p>
-          <div class="chart" id="chart"></div>
-          <details class="table-view"><summary>Show the readings as a table</summary><div id="chart-table"></div></details>
-        </article>
+  <div class="note-box" id="ev-observed" style="left:517px;top:603px;width:391px;height:140px" hidden></div>
+  <p class="confirm" id="ev-confirm" style="left:517px;top:749px;width:391px" hidden></p>
+  <div class="note-box note-box--green" id="ev-affects" style="left:930px;top:603px;width:411px;height:78px" hidden></div>
+  <div class="note-box" id="ev-science" style="left:930px;top:690px;width:411px;height:100px" hidden></div>
 
-        <article class="proof" id="proof-2" hidden>
-          <h2>Proof two: the trend</h2>
-          <div class="stats">
-            <div class="stat"><b id="st-slope">—</b><span id="st-slope-label">change per decade</span></div>
-            <div class="stat"><b id="st-pct">—</b><span>of the average, per decade</span></div>
-          </div>
-          <form class="period" id="period-form">
-            <span class="period__label">Choose your time period:</span>
-            <label>from <select id="p-start"></select></label>
-            <label>to <select id="p-end"></select></label>
-            <button class="btn btn--small" type="submit">Test this period</button>
-            <button class="btn btn--small btn--ghost" type="button" id="p-reset">Full record</button>
-          </form>
-          <p class="period__msg" id="period-msg" role="status"></p>
-        </article>
+  <span class="tag" id="tag-1" style="left:461px;top:820px" hidden>Proof one added ✔</span>
+  <span class="tag" id="tag-2" style="left:624px;top:820px" hidden>Proof two added ✔</span>
+  <span class="tag" id="tag-3" style="left:787px;top:820px" hidden>Proof three added ✔</span>
+  <button class="btn btn--gold btn--sm" id="ev-open-file" style="left:1074px;top:820px;width:150px;height:32px" hidden>Open Case File</button>
+  <button class="btn btn--cream btn--sm" id="ev-continue" style="left:1238px;top:820px;width:150px;height:32px" hidden>Continue Investigating</button>
+  <button class="link-btn link-btn--dark" id="ev-table-btn" style="left:1262px;top:160px" hidden>Table</button>
+  <p class="demo-banner" id="demo-banner" style="left:470px;top:860px" hidden>Demo: Marlene is solving this case for you. <button class="link-btn" id="demo-stop" type="button">Stop the demo</button></p>
+</div></section>
 
-        <article class="proof" id="proof-3" hidden>
-          <h2>Proof three: the verdict</h2>
-          <div class="stats">
-            <div class="stat"><b id="st-p">—</b><span>p-value</span></div>
-            <div class="stat"><b>α = 0.05</b><span>significance level</span></div>
-            <div class="stat"><b>Mann–Kendall</b><span>trend test</span></div>
-          </div>
-          <div class="verdict" id="verdict"></div>
-          <div class="context" id="context"></div>
-          <div class="proof__actions">
-            <button class="btn btn--primary" id="close-case">Add to the case file ✔</button>
-            <a class="btn btn--ghost" href="#globe">Back to the globe</a>
-          </div>
-        </article>
+<!-- ============ One case file (summary of a solved case) ============ -->
+<section class="screen" id="file" hidden><div class="stage st-casefile" id="file-stage"></div></section>
 
-        <div class="proof__actions" id="ev-next-wrap">
-          <button class="btn btn--gold" id="ev-next"></button>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ============ Investigation files (all nine) ============ -->
+<section class="screen" id="files" hidden><div class="stage st-files">
+  <div class="brand brand--ink" style="left:227px;top:102px"><b>THE MARLENE FILE</b><span>EARTH SYSTEM TREND DETECTIVE</span></div>
+  <div class="rule rule--orange" style="left:229px;top:158px;width:320px"></div>
+  <h1 class="page-title" style="left:230px;top:160px">Investigation Files</h1>
+  <p class="page-sub" style="left:232px;top:216px">EVERY COMPLETED INVESTIGATION, PRESERVED FOR FURTHER DISCOVERY</p>
+  <div id="files-grid"></div>
+  <a class="btn btn--gold btn--sm" href="#choose" style="left:1074px;top:807px;width:150px;height:32px">Return To The Globe</a>
+  <a class="btn btn--cream btn--sm" id="files-final" href="#final" style="left:910px;top:807px;width:150px;height:32px" hidden>The Final Board</a>
+</div></section>
 
-  <!-- 6. Case file -->
-  <section class="screen screen--file" id="casefile" hidden>
-    <div class="file">
-      <h1 class="ev__title">The Case File</h1>
-      <p class="ev__sub" id="file-sub"></p>
-      <div class="file__grid" id="file-grid"></div>
-      <div class="says says--wide">
-        <div class="marlene marlene--small" data-art="marlene-think.png" role="img" aria-label="Marlene"><span>M</span></div>
-        <blockquote id="file-says"></blockquote>
-      </div>
-      <div class="proof__actions">
-        <a class="btn btn--gold" href="#globe">Investigate another place</a>
-        <a class="btn btn--ghost" href="#compare">Compare the three places</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Compare -->
-  <section class="screen screen--file" id="compare" hidden>
-    <div class="file">
-      <h1 class="ev__title">Compare the Three Places</h1>
-      <p class="ev__sub">One clue, three places. Does the evidence agree?</p>
-      <div class="chips chips--left" id="cmp-chips" role="group" aria-label="Clue to compare"></div>
-      <div id="cmp-status" class="status" role="status"></div>
-      <div class="cmp__grid" id="cmp-grid"></div>
-      <div class="cmp__bottom">
-        <div class="card card--takeaways" id="cmp-takeaways"></div>
-        <div class="says">
-          <div class="marlene marlene--small" data-art="marlene-think.png" role="img" aria-label="Marlene"><span>M</span></div>
-          <blockquote id="cmp-says"></blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ============ Scrolling pages, in the case-file paper style ============ -->
+<section class="screen page" id="compare" hidden><div class="sheet" id="compare-sheet"></div></section>
+<section class="screen page page--space" id="celebrate" hidden><div class="sheet sheet--center" id="celebrate-sheet"></div></section>
+<section class="screen page" id="final" hidden><div class="sheet" id="final-sheet"></div></section>
+<section class="screen page" id="connect" hidden><div class="sheet" id="connect-sheet"></div></section>
+<section class="screen page" id="credits" hidden><div class="sheet" id="credits-sheet"></div></section>
 
 </main>
 
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<div class="modal" id="modal" hidden><div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <button class="modal__close" id="modal-close" aria-label="Close">×</button><h2 id="modal-title"></h2><div id="modal-body"></div>
+</div></div>
+<div class="dev" id="dev" hidden></div>
+
+<script src="config.js"></script>
+<script src="content.js"></script>
+<script src="charts.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

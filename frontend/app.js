@@ -22,6 +22,8 @@
   function ck(v, p) { return v + '-' + p; }
   function show(id, on) { $(id).hidden = !on; }
   function who() { return state.name || 'detective'; }
+  function Who() { var w = who(); return w.charAt(0).toUpperCase() + w.slice(1); }
+  function lower1(t) { return t.charAt(0).toLowerCase() + t.slice(1); }          // "Many people" -> "many people"
   function inPlace(p) { return p.label.replace(/^The /, 'the '); }        // "in the Sahel", not "in The Sahel"
   function median(a) { var s = a.slice().sort(function (x, y) { return x - y; }), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
   function mean(a) { return a.reduce(function (s, x) { return s + x; }, 0) / a.length; }
@@ -92,11 +94,19 @@
     return loadIndex().then(function (idx) {
       var id = idx[key];
       if (!id) { var e = new Error('That case is not in the records.'); e.status = 404; throw e; }
-      if (siteCache[id]) return siteCache[id];
-      return getJSON(API + '/sites/' + id + '/').then(function (s) { siteCache[id] = s; return s; });
+      if (!siteCache[id]) siteCache[id] = getJSON(API + '/sites/' + id + '/').catch(function (e) { delete siteCache[id]; throw e; });
+      return siteCache[id];
     });
   }
   function loadMany(list) { return Promise.all(list.map(function (c) { return loadSite(c.key); })); }
+  // Fetch every case quietly in the background, one at a time, so later screens open without waiting.
+  var prefetched = false;
+  function prefetchAll() {
+    if (prefetched) return; prefetched = true;
+    cases().reduce(function (chain, c) { return chain.then(function () { return loadSite(c.key).catch(function () {}); }); }, Promise.resolve());
+  }
+  // Start downloading the big pictures early, so each screen's background is ready when the player arrives.
+  function preloadImages(names) { names.forEach(function (n) { var i = new Image(); i.src = 'assets/' + n; }); }
   var WAIT = 'One moment, I’m fetching the files… The first request can take up to a minute.';
   function failText(e) { return e.status === 404 ? 'That file is not in my cabinet. Please go back and pick another case.' : 'I could not reach the records room. Please try again in a moment.'; }
 
@@ -190,6 +200,7 @@
       var done = state.varKey && solved(ck(state.varKey, p.key));
       place.appendChild(chip(icon(p) + esc(p.label) + (done ? ' ✔' : ''), state.placeKey === p.key, function () { state.placeKey = p.key; renderChoose(); }));
     });
+    prefetchAll();
     show('place-block', !!state.varKey); show('open-case', !!(state.varKey && state.placeKey));
     $('choose').classList.toggle('has-hunch', !!state.varKey);
     $('choose-board').innerHTML = boardHTML();
@@ -211,6 +222,7 @@
     loadSite(key).then(function (site) {
       if (!ev || ev.key !== key) return;
       ev.site = site; ev.cur = full(site);
+      var photo = key.split('-').reverse().join('-'); if (MF.PHOTOS[photo]) preloadImages(['place-' + photo + '.jpg']);
       var got = state.proofs[key] || 0;
       ev.step = got ? got + 1 : 0;
       $('ev-sub').textContent = v.title.toUpperCase() + ' · ' + p.label.replace(/^The /, '').toUpperCase() + ' · ' + site.start_year + '–' + site.end_year;
@@ -219,7 +231,7 @@
       if (state.demoPending) { state.demoPending = false; runDemo(); } else paintEvidence();
     }).catch(function (e) { $('ev-wait').textContent = failText(e); $('ev-says').textContent = 'Something is amiss with the records.'; });
   }
-  var EV_PARTS = ['ev-seal', 'ev-photo', 'ev-chart', 'ev-p1', 'ev-p2', 'ev-p3', 't-change', 't-p', 'ev-period', 't-test', 't-alpha', 'ev-verdict', 'ev-observed',
+  var EV_PARTS = ['ev-restart', 'ev-seal', 'ev-photo', 'ev-chart', 'ev-p1', 'ev-p2', 'ev-p3', 't-change', 't-p', 'ev-period', 't-test', 't-alpha', 'ev-verdict', 'ev-observed',
     'ev-confirm', 'ev-affects', 'ev-science', 'tag-1', 'tag-2', 'tag-3', 'ev-open-file', 'ev-continue', 'ev-table-btn'];
   function hideEvidenceParts() { EV_PARTS.forEach(function (id) { show(id, false); }); $('ev-tracker').innerHTML = ''; }
   function trendLine() {
@@ -235,8 +247,9 @@
     ['t-change', 't-p', 'ev-period', 'tag-2'].forEach(function (id) { show(id, s >= 3); }); show('ev-p3', s === 3);
     ['t-test', 't-alpha', 'ev-verdict', 'ev-observed', 'ev-confirm', 'ev-affects', 'ev-science', 'tag-3', 'ev-open-file', 'ev-continue'].forEach(function (id) { show(id, s >= 4); });
     show('ev-open-file', s >= 4 && !ev.demo); show('ev-continue', s >= 4 && !ev.demo);
+    show('ev-restart', s >= 1 && !ev.demo);
 
-    var done = [true, true, s >= 3, s >= 2, s >= 4];
+    var done = [true, true, s >= 1, s >= 2, s >= 4];
     $('ev-tracker').innerHTML = TRACK.map(function (t, i) { return '<li class="' + (done[i] ? 'is-done' : '') + '">' + (i + 1) + '. ' + t + '</li>'; }).join('');
 
     if (s >= 1) $('ev-photo').innerHTML = photoHTML(ev.key, p);
@@ -275,11 +288,11 @@
   }
   function marleneSays(s) {
     if (s === 0) return 'A sealed paper, ' + who() + '. Break the seal when you are ready.';
-    if (s === 1) return MF.QUESTIONS[ev.v.key][ev.p.key];
-    if (s === 2) return 'One dot for each year. But dots alone cannot tell us whether the change is more than luck.';
-    if (s === 3) return 'Move the start year and watch the verdict. A result that disappears with a small change is fragile.';
-    return ev.cur.sig ? 'The numbers support what we saw: strong evidence of a trend. It tells us what changed, not why.'
-      : 'Not enough evidence yet. That is not “nothing”: a longer record might reveal what this one cannot.';
+    if (s === 1) return Who() + ', ' + lower1(MF.QUESTIONS[ev.v.key][ev.p.key]);
+    if (s === 2) return 'Look closely, ' + who() + ': one dot for each year. But dots alone cannot tell us whether the change is more than luck.';
+    if (s === 3) return 'Now, ' + who() + ', move the start year and watch the verdict. A result that disappears with a small change is fragile.';
+    return ev.cur.sig ? 'Well done, ' + who() + '. The numbers support what we saw: strong evidence of a trend. It tells us what changed, not why.'
+      : 'Mind you, ' + who() + ': not enough evidence yet. That is not “nothing”: a longer record might reveal what this one cannot.';
   }
   function advance(to) {
     if (!ev || !ev.site) return;
@@ -290,11 +303,13 @@
   function testPeriod() {
     var site = ev.site, key = ev.key, i = +$('ev-range').value, start = site.points[i].year, label = $('ev-range-label');
     label.textContent = 'Testing ' + start + '–' + site.end_year + '…';
+    var ticket = ev.ticket = (ev.ticket || 0) + 1;                       // only the newest request may update the screen
     getJSON(API + '/sites/' + site.id + '/trend/?start=' + start + '&end=' + site.end_year).then(function (r) {
-      if (!ev || ev.key !== key) return;
+      if (!ev || ev.key !== key || ev.ticket !== ticket) return;
       ev.cur = { slope: r.slope_per_decade, p: r.p_value, sig: r.is_significant, start: r.start, end: r.end, n: r.n_points, isFull: r.start === site.start_year && r.end === site.end_year };
       paintEvidence();
     }).catch(function (e) {
+      if (!ev || ev.ticket !== ticket) return;
       label.textContent = e.status === 400 ? 'Pick at least 5 years to see a trend.' : failText(e);
     });
   }
@@ -541,11 +556,26 @@
     $('dev-reset').addEventListener('click', function () { state.proofs = {}; state.compared = {}; state.celebrated = false; save(); render(); });
   }
 
+  // ---------- restart ----------
+  function restartCase() {         // this case only: back to the sealed paper, its proofs leave the case file
+    if (!ev || !ev.site || !window.confirm('Restart this case from the sealed paper? Its proofs leave your case file.')) return;
+    stopDemo(true);
+    delete state.proofs[ev.key]; state.compared[ev.v.key] = false; state.celebrated = false; save();
+    ev.step = 0; ev.ticket = (ev.ticket || 0) + 1; ev.cur = full(ev.site); $('ev-range').value = 0;
+    $('ev-board').innerHTML = boardHTML(); paintEvidence();
+  }
+  function startOver() {           // the whole game: name and every case cleared, back to the Welcome page
+    if (!window.confirm('Start the whole investigation again from the first page? Your name and every solved case will be cleared.')) return;
+    stopDemo(true);
+    state.name = ''; state.proofs = {}; state.compared = {}; state.celebrated = false; state.varKey = state.placeKey = null; state.peek = false; save();
+    go('intro');
+  }
+
   // ---------- start ----------
   load();
   if (DEV) setupDev();
   $('meet-next').addEventListener('click', function () { show('meet-1', false); show('meet-2', true); $('name-input').value = state.name; $('name-input').focus(); });
-  $('meet-2').addEventListener('submit', function (e) { e.preventDefault(); state.name = $('name-input').value.trim(); save(); go('office'); });
+  $('meet-2').addEventListener('submit', function (e) { e.preventDefault(); var n = $('name-input').value.trim(); state.name = n.charAt(0).toUpperCase() + n.slice(1); save(); go('office'); });
   $('office-globe').addEventListener('click', function () { go('choose'); });
   $('open-case').addEventListener('click', function () { go('evidence'); });
   $('demo-btn').addEventListener('click', startDemo);
@@ -560,6 +590,8 @@
   $('ev-table-btn').addEventListener('click', showTable);
   $('ev-open-file').addEventListener('click', function () { go('file/' + ev.key); });
   $('ev-continue').addEventListener('click', afterCase);
+  $('ev-restart').addEventListener('click', restartCase);
+  $('choose-restart').addEventListener('click', startOver);
   $('modal-close').addEventListener('click', closeModal);
   $('modal').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
@@ -570,4 +602,6 @@
   var isNewVisitor = !state.name && !Object.keys(state.proofs).length;
   if (isNewVisitor && !DEV && location.hash && location.hash !== '#intro') history.replaceState(null, '', location.pathname + location.search + '#intro');
   fit(); render();
+  preloadImages(['bg-space.jpg', 'paper.png', 'marlene-wave.png', 'marlene-think.png', 'bg-office.jpg', 'globe-stand.png', 'globe-round.png',
+    'corkboard.png', 'bg-evidence.jpg', 'evidence-paper.png', 'envelope-closed.png', 'marlene-portrait.png', 'bg-casefile.jpg', 'bg-files.jpg']);
 })();

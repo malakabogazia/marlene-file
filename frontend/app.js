@@ -565,5 +565,9 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
   window.addEventListener('resize', fit);
   window.addEventListener('hashchange', render);
+  // A first-time visitor always starts at the Welcome page, even if the link they were sent
+  // ends in a later screen such as "#final". Returning players keep their place.
+  var isNewVisitor = !state.name && !Object.keys(state.proofs).length;
+  if (isNewVisitor && !DEV && location.hash && location.hash !== '#intro') history.replaceState(null, '', location.pathname + location.search + '#intro');
   fit(); render();
 })();

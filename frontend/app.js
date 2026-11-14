@@ -597,10 +597,10 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
   window.addEventListener('resize', fit);
   window.addEventListener('hashchange', render);
-  // A first-time visitor always starts at the Welcome page, even if the link they were sent
-  // ends in a later screen such as "#final". Returning players keep their place.
-  var isNewVisitor = !state.name && !Object.keys(state.proofs).length;
-  if (isNewVisitor && !DEV && location.hash && location.hash !== '#intro') history.replaceState(null, '', location.pathname + location.search + '#intro');
+  // Opening the site always starts at the Welcome page, even if the link ends in a later screen
+  // such as "#final", and even for someone who has played before. Their solved cases stay saved.
+  // (The developer menu, ?dev=1, can still open any screen directly.)
+  if (!DEV && location.hash && location.hash !== '#intro') history.replaceState(null, '', location.pathname + location.search + '#intro');
   fit(); render();
   preloadImages(['bg-space.jpg', 'paper.png', 'marlene-wave.png', 'marlene-think.png', 'bg-office.jpg', 'globe-stand.png', 'globe-round.png',
     'corkboard.png', 'bg-evidence.jpg', 'evidence-paper.png', 'envelope-closed.png', 'marlene-portrait.png', 'bg-casefile.jpg', 'bg-files.jpg']);

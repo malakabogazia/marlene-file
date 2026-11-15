@@ -63,8 +63,13 @@ body.is-stage { overflow-x: hidden; }
 .paper-text { font-size: 38px; line-height: 57px; font-weight: 500; color: #4a3520; }
 .paper-input { padding: 0 16px; font-size: 32px; color: #4a3520; background: rgba(226, 208, 168, .8); border: 1.5px solid #5a3f1e; border-radius: 12px; }
 .paper-input::placeholder { color: #8a7350; }
-.paper-next { width: 60px; height: 60px; border: 0; border-radius: 50%; background: none; font-size: 64px; line-height: 52px; color: #4a3520; }
-.paper-next:hover { background: rgba(74, 53, 32, .12); }
+/* A clear, labelled button on Marlene's paper, so first-time visitors know how to move on. */
+.paper-next { display: inline-flex; align-items: center; gap: 12px; height: 56px; padding: 0 28px; border: 0; border-radius: 999px;
+  background: var(--orange); color: #fff; font: 700 20px/1 var(--sans); box-shadow: 0 6px 16px rgba(60, 35, 5, .35);
+  animation: pulse-next 1.8s ease-in-out infinite; transition: filter .12s, transform .12s; }
+.paper-next span { font-size: 24px; }
+.paper-next:hover { filter: brightness(1.08); transform: translateY(-1px); }
+@keyframes pulse-next { 50% { box-shadow: 0 6px 16px rgba(60, 35, 5, .35), 0 0 0 8px rgba(217, 173, 79, .45); } }
 
 /* 4. office */
 .bubble { background: var(--cream); color: var(--ink); border-radius: 12px; padding: 20px 22px; box-shadow: 0 8px 22px rgba(0, 0, 0, .35); }
